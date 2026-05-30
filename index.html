@@ -55,16 +55,18 @@
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:600px){.grid{grid-template-columns:1fr}}
-  .card{border:3px solid var(--ink);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:.18s;position:relative;overflow:hidden}
+  .card{border:3px solid var(--ink);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:.18s;position:relative;overflow:hidden;cursor:pointer}
   .card:hover{transform:translateY(-6px);box-shadow:8px 8px 0 var(--ink)}
   .card.hide{display:none}
   .card .thumb{aspect-ratio:4/3;position:relative;border-bottom:3px solid var(--ink);overflow:hidden;background:var(--ink)}
   .card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
   .card:hover .thumb img{transform:scale(1.06)}
+  .newbadge{position:absolute;top:8px;right:8px;z-index:2;background:var(--pink);color:#fff;font-family:'Space Mono';font-size:.65rem;font-weight:700;padding:3px 8px;letter-spacing:1px}
   .card .body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
   .card h3{font-family:'Archivo';font-weight:900;font-size:1.15rem;line-height:1.1}
   .card .meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono';font-size:.78rem}
   .card .views{font-weight:700}
+  .card .count{font-weight:700;color:var(--teal)}
   .card .cat{background:var(--yellow);padding:2px 8px;font-size:.7rem;text-transform:uppercase}
   .more{text-align:center;margin:50px 0}
   .about{margin:90px 0;border:3px solid var(--ink);background:var(--ink);color:var(--paper);padding:clamp(30px,5vw,60px);position:relative;overflow:hidden}
@@ -76,6 +78,16 @@
   footer .social{display:flex;gap:20px;justify-content:center;margin-bottom:18px;flex-wrap:wrap}
   footer .social a{font-weight:800;text-decoration:none;color:var(--ink);border-bottom:3px solid var(--orange)}
   footer .fine{font-family:'Space Mono';font-size:.78rem;opacity:.6}
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(20,18,16,.94);z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;padding:30px}
+  .lb.open{display:flex}
+  .lb img{max-width:90vw;max-height:72vh;border:3px solid var(--paper);object-fit:contain}
+  .lb .lbtitle{color:var(--paper);font-family:'Archivo Black';font-size:1.4rem;margin-bottom:16px;text-transform:uppercase}
+  .lb .lbnav{display:flex;gap:16px;margin-top:20px;align-items:center}
+  .lb .lbnav button{font-family:'Space Mono';font-weight:700;padding:10px 18px;border:2px solid var(--paper);background:transparent;color:var(--paper);cursor:pointer;transition:.15s}
+  .lb .lbnav button:hover{background:var(--paper);color:var(--ink)}
+  .lb .lbclose{position:absolute;top:20px;right:28px;font-size:2.4rem;color:var(--paper);cursor:pointer;line-height:1;font-family:'Archivo Black'}
+  .lb .lbcount{color:var(--paper);font-family:'Space Mono';opacity:.7;align-self:center}
 </style>
 </head>
 <body>
@@ -87,7 +99,7 @@
 <header><div class="wrap">
   <span class="tag">Maker · Builder · Fixer · Tel Aviv</span>
   <h1 class="hero">I BUILD<br><span class="o">STUFF</span> WITH<br>MY <span class="stroke">BARE</span> <span class="t">HANDS</span></h1>
-  <p class="hero-sub">It always starts with a crazy idea on a small piece of paper. Other people buy the product — <b>I'd rather build it.</b> Woodwork, electronics, furniture, and the occasional Wall-E costume.</p>
+  <p class="hero-sub">It always starts with a crazy idea on a small piece of paper. Other people buy the product — <b>I'd rather build it.</b> Woodwork, electronics, furniture, and the occasional Wall-E.</p>
   <div class="cta-row"><a href="#work" class="btn btn-fill">See the builds →</a><a href="#contact" class="btn btn-ghost">Get in touch</a></div>
 </div></header>
 
@@ -99,7 +111,7 @@
 </div></div>
 
 <section id="work" class="wrap">
-  <div class="sec-head"><h2>Selected Builds</h2><span class="ix">[ 40 / 200 ]</span><div class="rule"></div></div>
+  <div class="sec-head"><h2>Selected Builds</h2><span class="ix">[ 50 / 200 ]</span><div class="rule"></div></div>
   <div class="filters">
     <button class="fbtn active" data-f="all">All</button>
     <button class="fbtn" data-f="Art">Art</button>
@@ -111,9 +123,50 @@
     <button class="fbtn" data-f="Lighting">Lighting</button>
     <button class="fbtn" data-f="Outdoor">Outdoor</button>
     <button class="fbtn" data-f="Tech">Tech</button>
+    <button class="fbtn" data-f="Woodwork">Woodwork</button>
     <button class="fbtn" data-f="Workshop">Workshop</button>
   </div>
   <div class="grid" id="grid">
+    <div class="card" data-cat="Furniture" data-gallery="nightstand.jpg|nightstand-1.jpg|nightstand-2.jpg|nightstand-3.jpg" data-title="Wood Nightstand">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/nightstand.jpg" alt="Wood Nightstand" loading="lazy"></div>
+      <div class="body"><h3>Wood Nightstand</h3><div class="meta"><span class="cat">Furniture</span><span class="count">4 photos</span></div></div>
+    </div>
+    <div class="card" data-cat="Woodwork" data-gallery="cutting-board-checker.jpg|cutting-board-checker-1.jpg|cutting-board-checker-2.jpg|cutting-board-checker-3.jpg|cutting-board-checker-4.jpg|cutting-board-checker-5.jpg" data-title="End-Grain Cutting Boards">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/cutting-board-checker.jpg" alt="End-Grain Cutting Boards" loading="lazy"></div>
+      <div class="body"><h3>End-Grain Cutting Boards</h3><div class="meta"><span class="cat">Woodwork</span><span class="count">6 photos</span></div></div>
+    </div>
+    <div class="card" data-cat="Woodwork" data-gallery="cutting-board-brick.jpg|cutting-board-brick-1.jpg|cutting-board-brick-2.jpg|cutting-board-brick-3.jpg" data-title="Brick-Pattern Cutting Boards">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/cutting-board-brick.jpg" alt="Brick-Pattern Cutting Boards" loading="lazy"></div>
+      <div class="body"><h3>Brick-Pattern Cutting Boards</h3><div class="meta"><span class="cat">Woodwork</span><span class="count">4 photos</span></div></div>
+    </div>
+    <div class="card" data-cat="Art" data-gallery="wood-wall-art.jpg" data-title="Colorful Wood Wall Art">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/wood-wall-art.jpg" alt="Colorful Wood Wall Art" loading="lazy"></div>
+      <div class="body"><h3>Colorful Wood Wall Art</h3><div class="meta"><span class="cat">Art</span></div></div>
+    </div>
+    <div class="card" data-cat="Home" data-gallery="tv-wall.jpg" data-title="Living Room TV Wall">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/tv-wall.jpg" alt="Living Room TV Wall" loading="lazy"></div>
+      <div class="body"><h3>Living Room TV Wall</h3><div class="meta"><span class="cat">Home</span></div></div>
+    </div>
+    <div class="card" data-cat="Furniture" data-gallery="console-sideboard.jpg" data-title="Wooden Console Sideboard">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/console-sideboard.jpg" alt="Wooden Console Sideboard" loading="lazy"></div>
+      <div class="body"><h3>Wooden Console Sideboard</h3><div class="meta"><span class="cat">Furniture</span></div></div>
+    </div>
+    <div class="card" data-cat="Furniture" data-gallery="floating-bench.jpg" data-title="Floating Wood Bench">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/floating-bench.jpg" alt="Floating Wood Bench" loading="lazy"></div>
+      <div class="body"><h3>Floating Wood Bench</h3><div class="meta"><span class="cat">Furniture</span></div></div>
+    </div>
+    <div class="card" data-cat="Craft" data-gallery="walle-figure.jpg" data-title="Wall-E Wooden Figure">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/walle-figure.jpg" alt="Wall-E Wooden Figure" loading="lazy"></div>
+      <div class="body"><h3>Wall-E Wooden Figure</h3><div class="meta"><span class="cat">Craft</span></div></div>
+    </div>
+    <div class="card" data-cat="Furniture" data-gallery="craft-table.jpg|craft-table-1.jpg" data-title="Colorful Craft Table">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/craft-table.jpg" alt="Colorful Craft Table" loading="lazy"></div>
+      <div class="body"><h3>Colorful Craft Table</h3><div class="meta"><span class="cat">Furniture</span><span class="count">2 photos</span></div></div>
+    </div>
+    <div class="card" data-cat="Furniture" data-gallery="wardrobe-build.jpg" data-title="Bedroom Wardrobe">
+      <div class="thumb"><span class="newbadge">NEW</span><img src="images/wardrobe-build.jpg" alt="Bedroom Wardrobe" loading="lazy"></div>
+      <div class="body"><h3>Bedroom Wardrobe</h3><div class="meta"><span class="cat">Furniture</span></div></div>
+    </div>
     <a href="https://www.instructables.com/Garden-Speakers/" target="_blank" class="card" data-cat="Audio">
       <div class="thumb"><img src="images/garden-speakers.jpg" alt="Garden Speakers" loading="lazy"></div>
       <div class="body"><h3>Garden Speakers</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 78K</span></div></div>
@@ -293,6 +346,17 @@
   <p class="fine">© 2026 Roey Leon · Built by hand · Tel Aviv, IL</p>
 </footer></section>
 
+<div class="lb" id="lb">
+  <span class="lbclose" id="lbclose">×</span>
+  <div class="lbtitle" id="lbtitle"></div>
+  <img id="lbimg" src="" alt="">
+  <div class="lbnav">
+    <button id="lbprev">‹ Prev</button>
+    <span class="lbcount" id="lbcount"></span>
+    <button id="lbnext">Next ›</button>
+  </div>
+</div>
+
 <script>
   const btns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('.card');
   btns.forEach(b=>b.addEventListener('click',()=>{
@@ -300,6 +364,27 @@
     const f=b.dataset.f;
     cards.forEach(c=>c.classList.toggle('hide', f!=='all' && c.dataset.cat!==f));
   }));
+  // lightbox for cards with data-gallery
+  const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
+        lbtitle=document.getElementById('lbtitle'),lbcount=document.getElementById('lbcount');
+  let gal=[],gi=0;
+  function show(){lbimg.src='images/'+gal[gi];lbcount.textContent=(gi+1)+' / '+gal.length;}
+  document.querySelectorAll('.card[data-gallery]').forEach(c=>{
+    c.addEventListener('click',()=>{
+      gal=c.dataset.gallery.split('|');gi=0;
+      lbtitle.textContent=c.dataset.title;show();lb.classList.add('open');
+    });
+  });
+  document.getElementById('lbnext').onclick=()=>{gi=(gi+1)%gal.length;show();};
+  document.getElementById('lbprev').onclick=()=>{gi=(gi-1+gal.length)%gal.length;show();};
+  document.getElementById('lbclose').onclick=()=>lb.classList.remove('open');
+  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')lb.classList.remove('open');
+    if(e.key==='ArrowRight')document.getElementById('lbnext').click();
+    if(e.key==='ArrowLeft')document.getElementById('lbprev').click();
+  });
 </script>
 </body>
 </html>
