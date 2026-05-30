@@ -8,22 +8,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Archivo:wght@400;500;600;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#141210;
-    --paper:#f5efe3;
-    --orange:#ff5722;
-    --yellow:#ffc400;
-    --teal:#00b3a4;
-    --blue:#2962ff;
-    --pink:#ff2e7e;
-  }
+  :root{--ink:#141210;--paper:#f5efe3;--orange:#ff5722;--yellow:#ffc400;--teal:#00b3a4;--blue:#2962ff;--pink:#ff2e7e;}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;
-    background-image:radial-gradient(var(--ink) 1px, transparent 1px);
-    background-size:26px 26px;background-position:-13px -13px;
-  }
+  body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;background-image:radial-gradient(var(--ink) 1px,transparent 1px);background-size:26px 26px;background-position:-13px -13px}
   .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
   nav{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--paper);border-bottom:4px solid var(--ink)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1280px;margin:0 auto}
@@ -39,12 +27,11 @@
   .tag{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Space Mono';font-size:.8rem;padding:6px 14px;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;transform:rotate(-2deg)}
   h1.hero{font-family:'Archivo Black';font-size:clamp(3rem,9vw,7.5rem);line-height:.92;letter-spacing:-3px;text-transform:uppercase}
   h1.hero .stroke{-webkit-text-stroke:3px var(--ink);color:transparent}
-  h1.hero .o{color:var(--orange)}
-  h1.hero .t{color:var(--teal)}
+  h1.hero .o{color:var(--orange)} h1.hero .t{color:var(--teal)}
   .hero-sub{margin-top:28px;font-size:clamp(1.05rem,2vw,1.4rem);max-width:620px;font-weight:500;line-height:1.5}
   .hero-sub b{background:var(--yellow);padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
   .cta-row{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap}
-  .btn{font-weight:800;text-decoration:none;padding:16px 30px;border:3px solid var(--ink);font-size:1rem;transition:.15s;display:inline-flex;align-items:center;gap:10px}
+  .btn{font-weight:800;text-decoration:none;padding:16px 30px;border:3px solid var(--ink);font-size:1rem;transition:.15s;display:inline-flex;align-items:center;gap:10px;cursor:pointer}
   .btn-fill{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 var(--orange)}
   .btn-fill:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--orange)}
   .btn-ghost{background:var(--paper);color:var(--ink);box-shadow:6px 6px 0 var(--teal)}
@@ -53,21 +40,24 @@
   .stat{background:var(--paper);padding:30px 20px;text-align:center}
   .stat:not(:last-child){border-right:3px solid var(--ink)}
   .stat .num{font-family:'Archivo Black';font-size:clamp(2rem,4vw,3.2rem);line-height:1}
-  .stat:nth-child(1) .num{color:var(--orange)}
-  .stat:nth-child(2) .num{color:var(--teal)}
-  .stat:nth-child(3) .num{color:var(--blue)}
-  .stat:nth-child(4) .num{color:var(--pink)}
+  .stat:nth-child(1) .num{color:var(--orange)} .stat:nth-child(2) .num{color:var(--teal)}
+  .stat:nth-child(3) .num{color:var(--blue)} .stat:nth-child(4) .num{color:var(--pink)}
   .stat .lbl{font-family:'Space Mono';font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:8px;opacity:.75}
   @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:3px solid var(--ink)}}
-  .sec-head{display:flex;align-items:baseline;gap:18px;margin:80px 0 36px}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin:80px 0 24px}
   .sec-head h2{font-family:'Archivo Black';font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;letter-spacing:-1px}
   .sec-head .ix{font-family:'Space Mono';font-size:1rem;color:var(--orange);font-weight:700}
   .sec-head .rule{flex:1;height:3px;background:var(--ink)}
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+  .fbtn{font-family:'Space Mono';font-size:.8rem;font-weight:700;padding:8px 16px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:.15s}
+  .fbtn:hover{background:var(--yellow)}
+  .fbtn.active{background:var(--ink);color:var(--paper)}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:600px){.grid{grid-template-columns:1fr}}
   .card{border:3px solid var(--ink);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:.18s;position:relative;overflow:hidden}
   .card:hover{transform:translateY(-6px);box-shadow:8px 8px 0 var(--ink)}
+  .card.hide{display:none}
   .card .thumb{aspect-ratio:4/3;position:relative;border-bottom:3px solid var(--ink);overflow:hidden;background:var(--ink)}
   .card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
   .card:hover .thumb img{transform:scale(1.06)}
@@ -89,112 +79,227 @@
 </style>
 </head>
 <body>
+<nav><div class="nav-in">
+  <div class="logo"><span class="dot"></span>ROEY&nbsp;LEON</div>
+  <div class="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</div></nav>
 
-<nav>
-  <div class="nav-in">
-    <div class="logo"><span class="dot"></span>ROEY&nbsp;LEON</div>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<header><div class="wrap">
+  <span class="tag">Maker · Builder · Fixer · Tel Aviv</span>
+  <h1 class="hero">I BUILD<br><span class="o">STUFF</span> WITH<br>MY <span class="stroke">BARE</span> <span class="t">HANDS</span></h1>
+  <p class="hero-sub">It always starts with a crazy idea on a small piece of paper. Other people buy the product — <b>I'd rather build it.</b> Woodwork, electronics, furniture, and the occasional Wall-E costume.</p>
+  <div class="cta-row"><a href="#work" class="btn btn-fill">See the builds →</a><a href="#contact" class="btn btn-ghost">Get in touch</a></div>
+</div></header>
 
-<header>
-  <div class="wrap">
-    <span class="tag">Maker · Builder · Fixer · Tel Aviv</span>
-    <h1 class="hero">I BUILD<br><span class="o">STUFF</span> WITH<br>MY <span class="stroke">BARE</span> <span class="t">HANDS</span></h1>
-    <p class="hero-sub">It always starts with a crazy idea on a small piece of paper. Other people buy the product — <b>I'd rather build it.</b> Woodwork, electronics, furniture, and the occasional Wall-E costume.</p>
-    <div class="cta-row">
-      <a href="#work" class="btn btn-fill">See the builds →</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
-    </div>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><div class="num">200+</div><div class="lbl">Projects built</div></div>
-    <div class="stat"><div class="num">648K</div><div class="lbl">Total views</div></div>
-    <div class="stat"><div class="num">381</div><div class="lbl">Followers</div></div>
-    <div class="stat"><div class="num">14</div><div class="lbl">Years making</div></div>
-  </div>
-</div>
+<div class="wrap"><div class="stats">
+  <div class="stat"><div class="num">200+</div><div class="lbl">Projects built</div></div>
+  <div class="stat"><div class="num">648K</div><div class="lbl">Total views</div></div>
+  <div class="stat"><div class="num">381</div><div class="lbl">Followers</div></div>
+  <div class="stat"><div class="num">14</div><div class="lbl">Years making</div></div>
+</div></div>
 
 <section id="work" class="wrap">
-  <div class="sec-head">
-    <h2>Selected Builds</h2>
-    <span class="ix">[ 10 / 200 ]</span>
-    <div class="rule"></div>
+  <div class="sec-head"><h2>Selected Builds</h2><span class="ix">[ 40 / 200 ]</span><div class="rule"></div></div>
+  <div class="filters">
+    <button class="fbtn active" data-f="all">All</button>
+    <button class="fbtn" data-f="Art">Art</button>
+    <button class="fbtn" data-f="Audio">Audio</button>
+    <button class="fbtn" data-f="Craft">Craft</button>
+    <button class="fbtn" data-f="Cycling">Cycling</button>
+    <button class="fbtn" data-f="Furniture">Furniture</button>
+    <button class="fbtn" data-f="Home">Home</button>
+    <button class="fbtn" data-f="Lighting">Lighting</button>
+    <button class="fbtn" data-f="Outdoor">Outdoor</button>
+    <button class="fbtn" data-f="Tech">Tech</button>
+    <button class="fbtn" data-f="Workshop">Workshop</button>
   </div>
-
-  <div class="grid">
-    <a href="https://www.instructables.com/Garden-Speakers/" class="card">
+  <div class="grid" id="grid">
+    <a href="https://www.instructables.com/Garden-Speakers/" target="_blank" class="card" data-cat="Audio">
       <div class="thumb"><img src="images/garden-speakers.jpg" alt="Garden Speakers" loading="lazy"></div>
       <div class="body"><h3>Garden Speakers</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 78K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/My-Awesome-little-Boombox/" class="card">
+    <a href="https://www.instructables.com/My-Awesome-little-Boombox/" target="_blank" class="card" data-cat="Audio">
       <div class="thumb"><img src="images/boombox-little.jpg" alt="My Awesome Little Boombox" loading="lazy"></div>
       <div class="body"><h3>My Awesome Little Boombox</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 74K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/Drywall-TV-Niche/" class="card">
+    <a href="https://www.instructables.com/Drywall-TV-Niche/" target="_blank" class="card" data-cat="Home">
       <div class="thumb"><img src="images/drywall-tv-niche.jpg" alt="Drywall TV Niche" loading="lazy"></div>
       <div class="body"><h3>Drywall TV Niche</h3><div class="meta"><span class="cat">Home</span><span class="views">👁 50K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/Plexiglas-Computer/" class="card">
+    <a href="https://www.instructables.com/My-BoomBox/" target="_blank" class="card" data-cat="Audio">
+      <div class="thumb"><img src="images/my-boombox.jpg" alt="My BoomBox" loading="lazy"></div>
+      <div class="body"><h3>My BoomBox</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 49K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Plexiglas-Computer/" target="_blank" class="card" data-cat="Tech">
       <div class="thumb"><img src="images/plexiglas-computer.jpg" alt="Plexiglas Computer" loading="lazy"></div>
       <div class="body"><h3>Plexiglas Computer</h3><div class="meta"><span class="cat">Tech</span><span class="views">👁 47K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/ToolsWallMount/" class="card">
+    <a href="https://www.instructables.com/ToolsWallMount/" target="_blank" class="card" data-cat="Workshop">
       <div class="thumb"><img src="images/tools-wall-mount.jpg" alt="Tools Wall Mount" loading="lazy"></div>
       <div class="body"><h3>Tools Wall Mount</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 47K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/Drill-Bit-Stand/" class="card">
+    <a href="https://www.instructables.com/Drill-Bit-Stand/" target="_blank" class="card" data-cat="Workshop">
       <div class="thumb"><img src="images/drill-bit-stand.jpg" alt="Drill Bit Stand" loading="lazy"></div>
       <div class="body"><h3>Drill Bit Stand</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 45K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/LED-Lights-For-Liquor-Bar/" class="card">
+    <a href="https://www.instructables.com/LED-Lights-For-Liquor-Bar/" target="_blank" class="card" data-cat="Lighting">
       <div class="thumb"><img src="images/led-liquor-bar.jpg" alt="LED Lights for Liquor Bar" loading="lazy"></div>
       <div class="body"><h3>LED Lights for Liquor Bar</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 24K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/Greenhouse-Project/" class="card">
+    <a href="https://www.instructables.com/Greenhouse-Project/" target="_blank" class="card" data-cat="Outdoor">
       <div class="thumb"><img src="images/greenhouse.jpg" alt="Greenhouse Project" loading="lazy"></div>
       <div class="body"><h3>Greenhouse Project</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 19K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/iPad-Bed-stand-iBed-/" class="card">
-      <div class="thumb"><img src="images/ibed.jpg" alt="iBed iPad Bed Stand" loading="lazy"></div>
+    <a href="https://www.instructables.com/Mini-BoomBox/" target="_blank" class="card" data-cat="Audio">
+      <div class="thumb"><img src="images/mini-boombox.jpg" alt="Mini BoomBox" loading="lazy"></div>
+      <div class="body"><h3>Mini BoomBox</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 16K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Boombox-MDF/" target="_blank" class="card" data-cat="Audio">
+      <div class="thumb"><img src="images/boombox-mdf.jpg" alt="Boombox MDF" loading="lazy"></div>
+      <div class="body"><h3>Boombox MDF</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 15K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/iPad-Bed-stand-iBed-/" target="_blank" class="card" data-cat="Furniture">
+      <div class="thumb"><img src="images/ibed.jpg" alt="iBed — iPad Bed Stand" loading="lazy"></div>
       <div class="body"><h3>iBed — iPad Bed Stand</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 13K</span></div></div>
     </a>
-    <a href="https://www.instructables.com/Solar-Panel-Lighting/" class="card">
+    <a href="https://www.instructables.com/Solar-Panel-Lighting/" target="_blank" class="card" data-cat="Lighting">
       <div class="thumb"><img src="images/solar-lighting.jpg" alt="Solar Panel Lighting" loading="lazy"></div>
       <div class="body"><h3>Solar Panel Lighting</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 12K</span></div></div>
     </a>
+    <a href="https://www.instructables.com/Simhasana-Bench/" target="_blank" class="card" data-cat="Furniture">
+      <div class="thumb"><img src="images/simhasana-bench.jpg" alt="Simhasana Bench" loading="lazy"></div>
+      <div class="body"><h3>Simhasana Bench</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 7.6K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Bicycle-Mount/" target="_blank" class="card" data-cat="Cycling">
+      <div class="thumb"><img src="images/bicycle-mount.jpg" alt="Bicycle Mount" loading="lazy"></div>
+      <div class="body"><h3>Bicycle Mount</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 7.6K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Bedside-Reading-Lamp/" target="_blank" class="card" data-cat="Lighting">
+      <div class="thumb"><img src="images/bedside-lamp.jpg" alt="Bedside Reading Lamp" loading="lazy"></div>
+      <div class="body"><h3>Bedside Reading Lamp</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 6.5K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Abstract-Wood-Wall-Art/" target="_blank" class="card" data-cat="Art">
+      <div class="thumb"><img src="images/abstract-wood-art.jpg" alt="Abstract Wood Wall Art" loading="lazy"></div>
+      <div class="body"><h3>Abstract Wood Wall Art</h3><div class="meta"><span class="cat">Art</span><span class="views">👁 6.1K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Lampshade-For-Livingroom/" target="_blank" class="card" data-cat="Lighting">
+      <div class="thumb"><img src="images/lampshade.jpg" alt="Lampshade for Livingroom" loading="lazy"></div>
+      <div class="body"><h3>Lampshade for Livingroom</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 5.1K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Ceiling-Wooden-Lamp/" target="_blank" class="card" data-cat="Lighting">
+      <div class="thumb"><img src="images/ceiling-lamp.jpg" alt="Ceiling Wooden Lamp" loading="lazy"></div>
+      <div class="body"><h3>Ceiling Wooden Lamp</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 4.1K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Clear-Case-PC/" target="_blank" class="card" data-cat="Tech">
+      <div class="thumb"><img src="images/clear-case-pc.jpg" alt="Clear Case PC" loading="lazy"></div>
+      <div class="body"><h3>Clear Case PC</h3><div class="meta"><span class="cat">Tech</span><span class="views">👁 3.9K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Canvas-Painting/" target="_blank" class="card" data-cat="Art">
+      <div class="thumb"><img src="images/canvas-painting.jpg" alt="Canvas Painting" loading="lazy"></div>
+      <div class="body"><h3>Canvas Painting</h3><div class="meta"><span class="cat">Art</span><span class="views">👁 3.8K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/iPad-for-Bathroom-iTiolet-/" target="_blank" class="card" data-cat="Tech">
+      <div class="thumb"><img src="images/itoilet.jpg" alt="iToilet — iPad for Bathroom" loading="lazy"></div>
+      <div class="body"><h3>iToilet — iPad for Bathroom</h3><div class="meta"><span class="cat">Tech</span><span class="views">👁 3.4K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Bubble-Gum-Machine-Costume/" target="_blank" class="card" data-cat="Craft">
+      <div class="thumb"><img src="images/bubblegum-costume.jpg" alt="Bubble Gum Machine Costume" loading="lazy"></div>
+      <div class="body"><h3>Bubble Gum Machine Costume</h3><div class="meta"><span class="cat">Craft</span><span class="views">👁 3.3K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Canvas-Wall-Frame/" target="_blank" class="card" data-cat="Art">
+      <div class="thumb"><img src="images/canvas-frame.jpg" alt="Canvas Wall Frame" loading="lazy"></div>
+      <div class="body"><h3>Canvas Wall Frame</h3><div class="meta"><span class="cat">Art</span><span class="views">👁 3.0K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Wardrobe-Painting/" target="_blank" class="card" data-cat="Home">
+      <div class="thumb"><img src="images/wardrobe-painting.jpg" alt="Wardrobe Painting" loading="lazy"></div>
+      <div class="body"><h3>Wardrobe Painting</h3><div class="meta"><span class="cat">Home</span><span class="views">👁 2.9K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Shoe-Storage-Rack/" target="_blank" class="card" data-cat="Furniture">
+      <div class="thumb"><img src="images/shoe-rack.jpg" alt="Shoe Storage Rack" loading="lazy"></div>
+      <div class="body"><h3>Shoe Storage Rack</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 2.7K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Standing-Floor-Lamp/" target="_blank" class="card" data-cat="Lighting">
+      <div class="thumb"><img src="images/floor-lamp.jpg" alt="Standing Floor Lamp" loading="lazy"></div>
+      <div class="body"><h3>Standing Floor Lamp</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 2.6K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Building-a-Planter/" target="_blank" class="card" data-cat="Outdoor">
+      <div class="thumb"><img src="images/planter-build.jpg" alt="Building a Planter" loading="lazy"></div>
+      <div class="body"><h3>Building a Planter</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 2.5K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Repair-Speaker-Adhesives-foam/" target="_blank" class="card" data-cat="Audio">
+      <div class="thumb"><img src="images/speaker-repair.jpg" alt="Repair Speaker Foam" loading="lazy"></div>
+      <div class="body"><h3>Repair Speaker Foam</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 2.5K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Dollie-for-Home-User/" target="_blank" class="card" data-cat="Workshop">
+      <div class="thumb"><img src="images/dollie.jpg" alt="Dollie for Home User" loading="lazy"></div>
+      <div class="body"><h3>Dollie for Home User</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 2.4K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/iPhone-Bike-Stand/" target="_blank" class="card" data-cat="Cycling">
+      <div class="thumb"><img src="images/iphone-bike.jpg" alt="iPhone Bike Stand" loading="lazy"></div>
+      <div class="body"><h3>iPhone Bike Stand</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 2.2K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/My-Small-Tools-Workshop/" target="_blank" class="card" data-cat="Workshop">
+      <div class="thumb"><img src="images/small-workshop.jpg" alt="My Small Tools Workshop" loading="lazy"></div>
+      <div class="body"><h3>My Small Tools Workshop</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 3.2K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Rear-cage-for-bottles-for-road-bike/" target="_blank" class="card" data-cat="Cycling">
+      <div class="thumb"><img src="images/rear-cage.jpg" alt="Rear Cage for Road Bike" loading="lazy"></div>
+      <div class="body"><h3>Rear Cage for Road Bike</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 1.9K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Bicycle-Stand-eAsy-Simple/" target="_blank" class="card" data-cat="Cycling">
+      <div class="thumb"><img src="images/bike-stand.jpg" alt="Bicycle Stand — Easy & Simple" loading="lazy"></div>
+      <div class="body"><h3>Bicycle Stand — Easy & Simple</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 3.5K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Fruit-Grabber/" target="_blank" class="card" data-cat="Outdoor">
+      <div class="thumb"><img src="images/fruit-grabber.jpg" alt="Fruit Grabber" loading="lazy"></div>
+      <div class="body"><h3>Fruit Grabber</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 1.4K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/iPad-Mini-inside-a-book/" target="_blank" class="card" data-cat="Craft">
+      <div class="thumb"><img src="images/ipad-book.jpg" alt="iPad Mini Inside a Book" loading="lazy"></div>
+      <div class="body"><h3>iPad Mini Inside a Book</h3><div class="meta"><span class="cat">Craft</span><span class="views">👁 1.1K</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/planter-Build-simple/" target="_blank" class="card" data-cat="Outdoor">
+      <div class="thumb"><img src="images/planter-simple.jpg" alt="Planter Build — Simple" loading="lazy"></div>
+      <div class="body"><h3>Planter Build — Simple</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 994</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/LED-Light-For-TV/" target="_blank" class="card" data-cat="Lighting">
+      <div class="thumb"><img src="images/led-tv.jpg" alt="LED Light for TV" loading="lazy"></div>
+      <div class="body"><h3>LED Light for TV</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 945</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Dining-Room-Hive-Shelving/" target="_blank" class="card" data-cat="Furniture">
+      <div class="thumb"><img src="images/hive-shelving.jpg" alt="Dining Room Hive Shelving" loading="lazy"></div>
+      <div class="body"><h3>Dining Room Hive Shelving</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 884</span></div></div>
+    </a>
+    <a href="https://www.instructables.com/Coffee-Table/" target="_blank" class="card" data-cat="Furniture">
+      <div class="thumb"><img src="images/coffee-table.jpg" alt="Coffee Table" loading="lazy"></div>
+      <div class="body"><h3>Coffee Table</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 760</span></div></div>
+    </a>
   </div>
-
-  <div class="more">
-    <a href="https://www.instructables.com/member/RoeyLeon/instructables/" class="btn btn-fill">View all 200+ projects →</a>
-  </div>
+  <div class="more"><a href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" class="btn btn-fill">View all 200+ projects →</a></div>
 </section>
 
-<section id="about" class="wrap">
-  <div class="about">
-    <h2>Hey, I'm Roey 👋</h2>
-    <p>From Tel Aviv, Israel. In my free time I love building stuff from scratch. It always starts with a crazy idea — and then I realize it's <span class="hl">too dangerous, unachievable, or just too big</span> — so I draw on a small piece of paper what I CAN do.</p>
-    <p style="margin-top:18px">Ideas come from design magazines, friends, and the internet. I collect a bunch of cool ones and then try to create them with my bare hands. Most people would just buy the product — but <span class="hl">the satisfaction of making something yourself is awesome.</span> That's why I'm here.</p>
+<section id="about" class="wrap"><div class="about">
+  <h2>Hey, I'm Roey 👋</h2>
+  <p>From Tel Aviv, Israel. In my free time I love building stuff from scratch. It always starts with a crazy idea — and then I realize it's <span class="hl">too dangerous, unachievable, or just too big</span> — so I draw on a small piece of paper what I CAN do.</p>
+  <p style="margin-top:18px">Ideas come from design magazines, friends, and the internet. I collect a bunch of cool ones and then try to create them with my bare hands. Most people would just buy the product — but <span class="hl">the satisfaction of making something yourself is awesome.</span> That's why I'm here.</p>
+</div></section>
+
+<section id="contact" class="wrap"><footer>
+  <div class="social">
+    <a href="https://www.instructables.com/member/RoeyLeon/" target="_blank">Instructables</a>
+    <a href="https://www.instagram.com/roeyleon/" target="_blank">Instagram</a>
+    <a href="mailto:roeyleon@gmail.com">Email</a>
   </div>
-</section>
+  <p class="fine">© 2026 Roey Leon · Built by hand · Tel Aviv, IL</p>
+</footer></section>
 
-<section id="contact" class="wrap">
-  <footer>
-    <div class="social">
-      <a href="https://www.instructables.com/member/RoeyLeon/" target="_blank">Instructables</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="mailto:hello@roeyleon.com">Email</a>
-    </div>
-    <p class="fine">© 2026 Roey Leon · Built by hand · Tel Aviv, IL</p>
-  </footer>
-</section>
-
+<script>
+  const btns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('.card');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.remove('active')); b.classList.add('active');
+    const f=b.dataset.f;
+    cards.forEach(c=>c.classList.toggle('hide', f!=='all' && c.dataset.cat!==f));
+  }));
+</script>
 </body>
 </html>
