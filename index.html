@@ -320,7 +320,7 @@ const P=[
   {t:"Wood Planters", c:"Outdoor", s:"wood-planter", v:"2.5K", u:"https://www.instructables.com/Building-a-Planter/", f:["Planter.jpg","planter_v2.png","planter_v3.jpg","planter.png","wood planters -mini.jpg","Planter_!.jpg"], cap:"Simple wooden planters in a few sizes."},
   {t:"iPad Mini Inside a Book", c:"Fun", s:"ipad-book", v:"1.1K", u:"https://www.instructables.com/iPad-Mini-inside-a-book/", f:["iPad Book Present for Mom.png"], cap:"A hollowed book that hides an iPad mini — a gift for Mom."},
   {t:"Dining Room Hive Shelving", c:"Furniture", s:"hive-shelving", v:"884", u:"https://www.instructables.com/Dining-Room-Hive-Shelving/", f:["מדפים לפינת אוכל.jpg"], cap:"Honeycomb shelves for the dining corner."},
-  {t:"End-Grain Cutting Boards", c:"Kitchen", s:"cutting-boards", f:["cutting boards (1).jpg","cutting boards (9).jpg","cutting boards (17).jpg","cutting boards (24).jpg","serving board (2).jpg","קרשי חיתוך (7).jpg","קרש חיתוך_2 (5).jpg","קרשי יחתוך נוספים (5).jpg"], cap:"Checkerboard and brick-pattern boards in mixed hardwoods."},
+  {t:"End-Grain Cutting Boards", c:"Kitchen", s:"cutting-boards", cv:2, f:["cutting boards (1).jpg","cutting boards (9).jpg","cutting boards (17).jpg","cutting boards (24).jpg","serving board (2).jpg","קרשי חיתוך (7).jpg","קרש חיתוך_2 (5).jpg","קרשי יחתוך נוספים (5).jpg"], cap:"Checkerboard and brick-pattern boards in mixed hardwoods."},
   {t:"Epoxy & Olive-Wood Tray", c:"Kitchen", s:"epoxy-tray", f:["epoxy serving tray (1).jpg"], cap:"A serving tray pouring olive wood into clear epoxy."},
   {t:"Wooden Salt & Pepper Mills", c:"Kitchen", s:"salt-pepper", f:["salt and pepper from wood.jpg"], cap:"Turned mills with real grinders inside."},
   {t:"Wooden Shot Glasses", c:"Kitchen", s:"shot-glasses", f:["כוסות צ'ייסר.jpg"], cap:"Tiny turned cups for the good stuff."},
@@ -404,7 +404,9 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.tar
 const grid=document.getElementById("grid");
 function render(){
   grid.innerHTML="";
-  const list=P.filter(p=>activeCat==="All"||p.c===activeCat);
+  const TOP=["cube-art","mountain-art","epoxy-clock","cutting-boards","mm-machine"];
+  const list=P.filter(p=>activeCat==="All"||p.c===activeCat)
+    .sort((a,b)=>(TOP.indexOf(a.s)<0?99:TOP.indexOf(a.s))-(TOP.indexOf(b.s)<0?99:TOP.indexOf(b.s)));
   list.forEach((p,i)=>{
     const idx=P.indexOf(p);
     const col=COLOR[p.c]||"#fff";
@@ -426,7 +428,7 @@ function render(){
         <h3>${p.t}</h3>
         <div class="meta"><span>${p.f.length>1?p.f.length+" photos":"1 photo"}</span>${p.v?`<span class="views">▲ ${p.v}</span>`:``}</div>
       </div>`;
-    setImg(el.querySelector("img"),p.s,p.f,0);
+    setImg(el.querySelector("img"),p.s,p.f,p.cv||0);
     el.onclick=()=>openModal(idx);
     grid.appendChild(el);
     io.observe(el);
@@ -457,7 +459,7 @@ let cur2=null,gi=0;
 function stopVideo(){const fr=stage.querySelector("iframe");if(fr)fr.remove();mimg.style.display="";}
 function showSlide(){stopVideo();setImg(mimg,cur2.s,cur2.f,gi);[...mdots.children].forEach((d,k)=>d.classList.toggle("on",k===gi));playwrap.style.display=cur2.yt?"grid":"none";const m=cur2.f.length>1;mprev.style.display=mnext.style.display=m?"grid":"none";}
 function openModal(i){
-  cur2=P[i];gi=0;
+  cur2=P[i];gi=cur2.cv||0;
   const col=COLOR[cur2.c]||"#18e6ff";
   sheet.style.setProperty("--cc",col);
   document.getElementById("mchip").style.background=col;
