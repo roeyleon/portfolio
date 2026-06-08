@@ -3,388 +3,490 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roey Leon — Maker / Builder / Fixer</title>
+<title>Roey Leon · @roeyleon — Maker / Builder / Fixer</title>
+<meta name="description" content="Roey Leon — maker, builder, fixer from Tel Aviv. 200+ handmade projects: furniture, lighting, woodwork, audio, and the occasional Wall-E.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Archivo:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#141210;--paper:#f5efe3;--orange:#ff5722;--yellow:#ffc400;--teal:#00b3a4;--blue:#2962ff;--pink:#ff2e7e;}
+  :root{
+    --paper:#f3ece1; --paper2:#ece3d4; --ink:#181410; --ink-soft:#5b5246;
+    --line:#1814101a; --line2:#18141033;
+    --accent:#ff5a1f; --accent2:#0e7c7b; --gold:#e8a317;
+    --card:#fbf7ef;
+    --shadow:0 1px 0 #0000000d, 0 8px 24px -16px #18141066;
+  }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;background-image:radial-gradient(var(--ink) 1px,transparent 1px);background-size:26px 26px;background-position:-13px -13px}
-  .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
-  nav{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--paper);border-bottom:4px solid var(--ink)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1280px;margin:0 auto}
-  .logo{font-family:'Archivo Black';font-size:1.3rem;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
-  .logo .dot{width:14px;height:14px;background:var(--orange);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
-  .nav-links{display:flex;gap:28px;font-weight:600;font-size:.95rem}
-  .nav-links a{color:var(--paper);text-decoration:none;position:relative}
-  .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:3px;background:var(--yellow);transition:.25s}
-  .nav-links a:hover::after{width:100%}
-  @media(max-width:720px){.nav-links{display:none}}
-  header{padding:70px 0 50px;position:relative}
-  .tag{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Space Mono';font-size:.8rem;padding:6px 14px;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;transform:rotate(-2deg)}
-  h1.hero{font-family:'Archivo Black';font-size:clamp(3rem,9vw,7.5rem);line-height:.92;letter-spacing:-3px;text-transform:uppercase}
-  h1.hero .stroke{-webkit-text-stroke:3px var(--ink);color:transparent}
-  h1.hero .o{color:var(--orange)} h1.hero .t{color:var(--teal)}
-  .hero-sub{margin-top:28px;font-size:clamp(1.05rem,2vw,1.4rem);max-width:620px;font-weight:500;line-height:1.5}
-  .hero-sub b{background:var(--yellow);padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-  .cta-row{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap}
-  .btn{font-weight:800;text-decoration:none;padding:16px 30px;border:3px solid var(--ink);font-size:1rem;transition:.15s;display:inline-flex;align-items:center;gap:10px;cursor:pointer}
-  .btn-fill{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 var(--orange)}
-  .btn-fill:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--orange)}
-  .btn-ghost{background:var(--paper);color:var(--ink);box-shadow:6px 6px 0 var(--teal)}
-  .btn-ghost:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--teal)}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:3px solid var(--ink);margin:60px 0;background:var(--ink)}
-  .stat{background:var(--paper);padding:30px 20px;text-align:center}
-  .stat:not(:last-child){border-right:3px solid var(--ink)}
-  .stat .num{font-family:'Archivo Black';font-size:clamp(2rem,4vw,3.2rem);line-height:1}
-  .stat:nth-child(1) .num{color:var(--orange)} .stat:nth-child(2) .num{color:var(--teal)}
-  .stat:nth-child(3) .num{color:var(--blue)} .stat:nth-child(4) .num{color:var(--pink)}
-  .stat .lbl{font-family:'Space Mono';font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:8px;opacity:.75}
-  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:3px solid var(--ink)}}
-  .sec-head{display:flex;align-items:baseline;gap:18px;margin:80px 0 24px}
-  .sec-head h2{font-family:'Archivo Black';font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;letter-spacing:-1px}
-  .sec-head .ix{font-family:'Space Mono';font-size:1rem;color:var(--orange);font-weight:700}
-  .sec-head .rule{flex:1;height:3px;background:var(--ink)}
-  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
-  .fbtn{font-family:'Space Mono';font-size:.8rem;font-weight:700;padding:8px 16px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:.15s}
-  .fbtn:hover{background:var(--yellow)}
-  .fbtn.active{background:var(--ink);color:var(--paper)}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:600px){.grid{grid-template-columns:1fr}}
-  .card{border:3px solid var(--ink);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:.18s;position:relative;overflow:hidden;cursor:pointer}
-  .card:hover{transform:translateY(-6px);box-shadow:8px 8px 0 var(--ink)}
-  .card.hide{display:none}
-  .card .thumb{aspect-ratio:4/3;position:relative;border-bottom:3px solid var(--ink);overflow:hidden;background:var(--ink)}
-  .card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
-  .card:hover .thumb img{transform:scale(1.06)}
-  .newbadge{position:absolute;top:8px;right:8px;z-index:2;background:var(--pink);color:#fff;font-family:'Space Mono';font-size:.65rem;font-weight:700;padding:3px 8px;letter-spacing:1px}
-  .card .body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .card h3{font-family:'Archivo';font-weight:900;font-size:1.15rem;line-height:1.1}
-  .card .meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono';font-size:.78rem}
-  .card .views{font-weight:700}
-  .card .count{font-weight:700;color:var(--teal)}
-  .card .cat{background:var(--yellow);padding:2px 8px;font-size:.7rem;text-transform:uppercase}
-  .more{text-align:center;margin:50px 0}
-  .about{margin:90px 0;border:3px solid var(--ink);background:var(--ink);color:var(--paper);padding:clamp(30px,5vw,60px);position:relative;overflow:hidden}
-  .about::before{content:'🔨';position:absolute;right:-20px;top:-30px;font-size:14rem;opacity:.06;transform:rotate(-15deg)}
-  .about h2{font-family:'Archivo Black';font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:20px;text-transform:uppercase}
-  .about p{font-size:1.1rem;line-height:1.65;max-width:760px;position:relative}
-  .about .hl{color:var(--yellow);font-weight:700}
-  footer{border-top:4px solid var(--ink);padding:40px 0;text-align:center}
-  footer .social{display:flex;gap:20px;justify-content:center;margin-bottom:18px;flex-wrap:wrap}
-  footer .social a{font-weight:800;text-decoration:none;color:var(--ink);border-bottom:3px solid var(--orange)}
-  footer .fine{font-family:'Space Mono';font-size:.78rem;opacity:.6}
-  /* lightbox */
-  .lb{position:fixed;inset:0;background:rgba(20,18,16,.94);z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;padding:30px}
-  .lb.open{display:flex}
-  .lb img{max-width:90vw;max-height:72vh;border:3px solid var(--paper);object-fit:contain}
-  .lb .lbtitle{color:var(--paper);font-family:'Archivo Black';font-size:1.4rem;margin-bottom:16px;text-transform:uppercase}
-  .lb .lbnav{display:flex;gap:16px;margin-top:20px;align-items:center}
-  .lb .lbnav button{font-family:'Space Mono';font-weight:700;padding:10px 18px;border:2px solid var(--paper);background:transparent;color:var(--paper);cursor:pointer;transition:.15s}
-  .lb .lbnav button:hover{background:var(--paper);color:var(--ink)}
-  .lb .lbclose{position:absolute;top:20px;right:28px;font-size:2.4rem;color:var(--paper);cursor:pointer;line-height:1;font-family:'Archivo Black'}
-  .lb .lbcount{color:var(--paper);font-family:'Space Mono';opacity:.7;align-self:center}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;background:var(--paper);color:var(--ink);
+    overflow-x:hidden;line-height:1.5;
+    background-image:
+      radial-gradient(circle at 18% 12%, #ffffff80 0%, transparent 42%),
+      radial-gradient(circle at 84% 0%, #0e7c7b14 0%, transparent 38%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+  .display{font-family:'Bricolage Grotesque',sans-serif;}
+  .mono{font-family:'Space Mono',monospace;}
+  a{color:inherit}
+  .wrap{max-width:975px;margin:0 auto;padding:0 16px}
+
+  /* ── top bar ── */
+  nav{position:sticky;top:0;z-index:60;background:#f3ece1f2;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:975px;margin:0 auto;padding:0 16px}
+  .brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.45rem;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+  .brand .spark{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:9px;font-size:.9rem;transform:rotate(-6deg)}
+  .nav-links{display:flex;gap:22px;font-weight:600;font-size:.92rem;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);transition:.18s}
+  .nav-links a:hover{color:var(--accent)}
+  @media(max-width:640px){.nav-links a.lbl{display:none}}
+
+  /* ── profile header ── */
+  header{padding:34px 0 8px}
+  .profile{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+  .avatar{width:148px;height:148px;border-radius:50%;position:relative;justify-self:center}
+  .avatar .ring{position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(from 210deg,var(--accent),var(--gold),var(--accent2),var(--accent));padding:4px;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4px));mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4px))}
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--paper);background:var(--ink)}
+  .ph-main{min-width:0}
+  .ph-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+  .handle{font-size:1.6rem;font-weight:500;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
+  .verified{color:var(--accent2);font-size:1.05rem}
+  .ph-btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-weight:700;font-size:.9rem;border-radius:10px;padding:8px 16px;border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:.16s;white-space:nowrap}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 16px -8px var(--accent)}
+  .btn-primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+  .btn-ghost{background:var(--paper2);color:var(--ink);border-color:var(--line2)}
+  .btn-ghost:hover{background:#e3d8c6}
+  .btn-icon{background:var(--paper2);border-color:var(--line2);padding:8px 11px}
+  .stats{display:flex;gap:34px;margin-bottom:16px;font-size:1rem}
+  .stats b{font-weight:800}
+  .stats .s-lbl{color:var(--ink-soft)}
+  .bio{font-size:1rem;max-width:520px}
+  .bio .name{font-weight:800;font-family:'Bricolage Grotesque';font-size:1.05rem}
+  .bio .tagrow{margin:2px 0 6px;color:var(--ink-soft);font-weight:600}
+  .bio .link{color:var(--accent2);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  .bio .link:hover{text-decoration:underline}
+  @media(max-width:640px){
+    .profile{grid-template-columns:1fr;gap:16px;text-align:center}
+    .avatar{width:104px;height:104px}
+    .ph-top{justify-content:center;gap:12px}
+    .handle{font-size:1.3rem}
+    .stats{justify-content:center;gap:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:6px 0}
+    .stats .s-lbl{display:block;font-size:.82rem}
+    .stats div{display:flex;flex-direction:column}
+    .bio{margin:0 auto}
+  }
+
+  /* ── story highlights ── */
+  .highlights{display:flex;gap:20px;overflow-x:auto;padding:30px 4px 14px;margin-top:14px;scrollbar-width:none}
+  .highlights::-webkit-scrollbar{display:none}
+  .hl{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;background:none;border:none;font:inherit}
+  .hl .bubble{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;background:var(--card);border:2px solid var(--line2);transition:.18s}
+  .hl .lbl{font-size:.78rem;font-weight:600;color:var(--ink-soft)}
+  .hl:hover .bubble{transform:translateY(-3px)}
+  .hl.active .bubble{border-color:var(--accent);box-shadow:0 0 0 3px #ff5a1f22;background:#fff}
+  .hl.active .lbl{color:var(--ink)}
+  @media(max-width:640px){.hl .bubble{width:62px;height:62px;font-size:1.4rem}}
+
+  /* ── tabs ── */
+  .tabs{display:flex;justify-content:center;gap:54px;border-top:1px solid var(--line);margin-top:6px}
+  .tab{padding:16px 0;font-family:'Space Mono';font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);border-top:2px solid transparent;margin-top:-1px;display:flex;align-items:center;gap:8px}
+  .tab.on{color:var(--ink);border-top-color:var(--ink)}
+  .tab .ic{font-size:.95rem}
+
+  /* ── grid ── */
+  #grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:6px 0 10px}
+  @media(min-width:700px){#grid{gap:18px}}
+  .post{position:relative;aspect-ratio:1;overflow:hidden;cursor:pointer;background:var(--ink);border-radius:4px}
+  @media(min-width:700px){.post{border-radius:10px;box-shadow:var(--shadow)}}
+  .post img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .post:hover img{transform:scale(1.06)}
+  .post .multi{position:absolute;top:8px;right:8px;color:#fff;filter:drop-shadow(0 1px 2px #0008);font-size:1rem;z-index:2}
+  .post .vbadge{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2}
+  .post .vbadge span{width:46px;height:46px;border-radius:50%;background:#181410b3;color:#fff;display:grid;place-items:center;font-size:1.05rem;backdrop-filter:blur(2px);box-shadow:0 4px 14px #0007;padding-left:3px}
+  .post .pin{position:absolute;top:8px;left:8px;background:var(--gold);color:#1c1408;font-family:'Space Mono';font-weight:700;font-size:.62rem;padding:2px 7px;border-radius:20px;letter-spacing:.5px;z-index:2}
+  .post .ov{position:absolute;inset:0;background:linear-gradient(180deg,#0000 35%,#181410cc);opacity:0;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;transition:.22s;color:#fff}
+  .post:hover .ov{opacity:1}
+  .post .ov h3{font-family:'Bricolage Grotesque';font-weight:700;font-size:.98rem;line-height:1.12}
+  .post .ov .row{margin-top:5px;font-family:'Space Mono';font-size:.7rem;display:flex;gap:12px;opacity:.92}
+  .post.hide{display:none}
+  .empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink-soft);font-family:'Space Mono'}
+
+  /* ── about strip ── */
+  .about{margin:46px 0 10px;background:var(--ink);color:var(--paper);border-radius:18px;padding:clamp(26px,5vw,52px);position:relative;overflow:hidden}
+  .about::after{content:'🛠️';position:absolute;right:-14px;bottom:-34px;font-size:11rem;opacity:.07;transform:rotate(-12deg)}
+  .about h2{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(1.5rem,4vw,2.3rem);margin-bottom:14px;letter-spacing:-.5px}
+  .about p{max-width:660px;font-size:1.05rem;line-height:1.65;color:#f3ece1cc}
+  .about p+p{margin-top:14px}
+  .about .hl-w{color:var(--gold);font-weight:700}
+
+  /* ── footer ── */
+  footer{padding:40px 0 56px;text-align:center;color:var(--ink-soft)}
+  .fsocial{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+  .fine{font-family:'Space Mono';font-size:.74rem;letter-spacing:.4px}
+
+  /* ── modal / post view ── */
+  .modal{position:fixed;inset:0;z-index:120;background:#100d0ad9;backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:18px}
+  .modal.open{display:flex}
+  .mclose{position:fixed;top:16px;right:20px;font-size:2rem;color:#fff;background:none;border:none;cursor:pointer;line-height:1;z-index:130}
+  .sheet{background:var(--card);width:min(940px,100%);max-height:90vh;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;box-shadow:0 30px 80px -20px #000a;animation:pop .25s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+  .stage{position:relative;background:#100d0a;display:flex;align-items:center;justify-content:center;min-height:300px}
+  .stage img{max-width:100%;max-height:90vh;object-fit:contain;display:block}
+  .stage iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+  .playwrap{position:absolute;inset:0;display:grid;place-items:center;cursor:pointer;z-index:6}
+  .playwrap span{width:76px;height:76px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:1.7rem;padding-left:5px;box-shadow:0 10px 30px #000a;transition:.16s}
+  .playwrap:hover span{transform:scale(1.08)}
+  .arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:#ffffffdd;color:#181410;font-size:1.1rem;cursor:pointer;display:grid;place-items:center;transition:.15s;z-index:5}
+  .arrow:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
+  .arrow.prev{left:12px}.arrow.next{right:12px}
+  .dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5}
+  .dots i{width:7px;height:7px;border-radius:50%;background:#ffffff66;transition:.2s}
+  .dots i.on{background:#fff;transform:scale(1.25)}
+  .side{display:flex;flex-direction:column;min-width:0}
+  .side-top{display:flex;align-items:center;gap:11px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .side-top img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+  .side-top .h{font-weight:800;font-size:.92rem}
+  .side-top .h small{display:block;color:var(--ink-soft);font-weight:600;font-size:.78rem}
+  .side-body{padding:18px;overflow-y:auto}
+  .chip{display:inline-block;background:var(--paper2);border:1px solid var(--line2);font-family:'Space Mono';font-size:.68rem;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+  .side-body h2{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.5rem;line-height:1.08;letter-spacing:-.5px;margin-bottom:10px}
+  .side-body p{color:var(--ink-soft);font-size:.98rem;line-height:1.55}
+  .side-meta{margin-top:16px;display:flex;gap:16px;font-family:'Space Mono';font-size:.78rem;color:var(--ink-soft);flex-wrap:wrap}
+  .side-cta{padding:14px 18px;border-top:1px solid var(--line);margin-top:auto;display:flex;flex-direction:column;gap:8px}
+  @media(max-width:760px){
+    .sheet{grid-template-columns:1fr;max-height:92vh;overflow-y:auto}
+    .stage{min-height:auto}
+    .stage img{max-height:56vh}
+  }
 </style>
 </head>
 <body>
+
 <nav><div class="nav-in">
-  <div class="logo"><span class="dot"></span>ROEY&nbsp;LEON</div>
-  <div class="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  <div class="brand"><span class="spark">✦</span>roeyleon</div>
+  <div class="nav-links">
+    <a href="#grid" class="lbl">Builds</a>
+    <a href="#about" class="lbl">About</a>
+    <a href="https://www.instructables.com/member/RoeyLeon/" target="_blank" rel="noopener">Instructables</a>
+    <a href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener" class="btn btn-primary" style="padding:6px 14px">Follow</a>
+  </div>
 </div></nav>
 
-<header><div class="wrap">
-  <span class="tag">Maker · Builder · Fixer · Tel Aviv</span>
-  <h1 class="hero">I BUILD<br><span class="o">STUFF</span> WITH<br>MY <span class="stroke">BARE</span> <span class="t">HANDS</span></h1>
-  <p class="hero-sub">It always starts with a crazy idea on a small piece of paper. Other people buy the product — <b>I'd rather build it.</b> Woodwork, electronics, furniture, and the occasional Wall-E.</p>
-  <div class="cta-row"><a href="#work" class="btn btn-fill">See the builds →</a><a href="#contact" class="btn btn-ghost">Get in touch</a></div>
-</div></header>
+<div class="wrap">
+  <header>
+    <div class="profile">
+      <div class="avatar">
+        <div class="ring"></div>
+        <img id="avatarImg" alt="Roey Leon workshop" loading="eager">
+      </div>
+      <div class="ph-main">
+        <div class="ph-top">
+          <div class="handle">roeyleon <span class="verified" title="Maker since 2011">✔</span></div>
+          <div class="ph-btns">
+            <a href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener" class="btn btn-primary">Follow</a>
+            <a href="mailto:roeyleon@gmail.com" class="btn btn-ghost">Message</a>
+            <a href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener" class="btn btn-icon" title="All projects">⌗</a>
+          </div>
+        </div>
+        <div class="stats">
+          <div><b id="countNum">0</b> <span class="s-lbl">builds</span></div>
+          <div><b>648K</b> <span class="s-lbl">reach</span></div>
+          <div><b>381</b> <span class="s-lbl">followers</span></div>
+        </div>
+        <div class="bio">
+          <div class="name">Roey Leon</div>
+          <div class="tagrow">Maker · Builder · Fixer 🛠️ · Tel Aviv 📍</div>
+          I build stuff with my bare hands. It always starts with a crazy idea on a small piece of paper — other people buy the product, I'd rather make it.<br>
+          <a class="link" href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener">↗ 200+ full build guides on Instructables</a>
+        </div>
+      </div>
+    </div>
 
-<div class="wrap"><div class="stats">
-  <div class="stat"><div class="num">200+</div><div class="lbl">Projects built</div></div>
-  <div class="stat"><div class="num">648K</div><div class="lbl">Total views</div></div>
-  <div class="stat"><div class="num">381</div><div class="lbl">Followers</div></div>
-  <div class="stat"><div class="num">14</div><div class="lbl">Years making</div></div>
-</div></div>
+    <div class="highlights" id="highlights"></div>
+  </header>
 
-<section id="work" class="wrap">
-  <div class="sec-head"><h2>Selected Builds</h2><span class="ix">[ 50 / 200 ]</span><div class="rule"></div></div>
-  <div class="filters">
-    <button class="fbtn active" data-f="all">All</button>
-    <button class="fbtn" data-f="Art">Art</button>
-    <button class="fbtn" data-f="Audio">Audio</button>
-    <button class="fbtn" data-f="Craft">Craft</button>
-    <button class="fbtn" data-f="Cycling">Cycling</button>
-    <button class="fbtn" data-f="Furniture">Furniture</button>
-    <button class="fbtn" data-f="Home">Home</button>
-    <button class="fbtn" data-f="Lighting">Lighting</button>
-    <button class="fbtn" data-f="Outdoor">Outdoor</button>
-    <button class="fbtn" data-f="Tech">Tech</button>
-    <button class="fbtn" data-f="Woodwork">Woodwork</button>
-    <button class="fbtn" data-f="Workshop">Workshop</button>
-  </div>
-  <div class="grid" id="grid">
-    <div class="card" data-cat="Furniture" data-gallery="nightstand.jpg|nightstand-1.jpg|nightstand-2.jpg|nightstand-3.jpg" data-title="Wood Nightstand">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/nightstand.jpg" alt="Wood Nightstand" loading="lazy"></div>
-      <div class="body"><h3>Wood Nightstand</h3><div class="meta"><span class="cat">Furniture</span><span class="count">4 photos</span></div></div>
-    </div>
-    <div class="card" data-cat="Woodwork" data-gallery="cutting-board-checker.jpg|cutting-board-checker-1.jpg|cutting-board-checker-2.jpg|cutting-board-checker-3.jpg|cutting-board-checker-4.jpg|cutting-board-checker-5.jpg" data-title="End-Grain Cutting Boards">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/cutting-board-checker.jpg" alt="End-Grain Cutting Boards" loading="lazy"></div>
-      <div class="body"><h3>End-Grain Cutting Boards</h3><div class="meta"><span class="cat">Woodwork</span><span class="count">6 photos</span></div></div>
-    </div>
-    <div class="card" data-cat="Woodwork" data-gallery="cutting-board-brick.jpg|cutting-board-brick-1.jpg|cutting-board-brick-2.jpg|cutting-board-brick-3.jpg" data-title="Brick-Pattern Cutting Boards">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/cutting-board-brick.jpg" alt="Brick-Pattern Cutting Boards" loading="lazy"></div>
-      <div class="body"><h3>Brick-Pattern Cutting Boards</h3><div class="meta"><span class="cat">Woodwork</span><span class="count">4 photos</span></div></div>
-    </div>
-    <div class="card" data-cat="Art" data-gallery="wood-wall-art.jpg" data-title="Colorful Wood Wall Art">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/wood-wall-art.jpg" alt="Colorful Wood Wall Art" loading="lazy"></div>
-      <div class="body"><h3>Colorful Wood Wall Art</h3><div class="meta"><span class="cat">Art</span></div></div>
-    </div>
-    <div class="card" data-cat="Home" data-gallery="tv-wall.jpg" data-title="Living Room TV Wall">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/tv-wall.jpg" alt="Living Room TV Wall" loading="lazy"></div>
-      <div class="body"><h3>Living Room TV Wall</h3><div class="meta"><span class="cat">Home</span></div></div>
-    </div>
-    <div class="card" data-cat="Furniture" data-gallery="console-sideboard.jpg" data-title="Wooden Console Sideboard">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/console-sideboard.jpg" alt="Wooden Console Sideboard" loading="lazy"></div>
-      <div class="body"><h3>Wooden Console Sideboard</h3><div class="meta"><span class="cat">Furniture</span></div></div>
-    </div>
-    <div class="card" data-cat="Furniture" data-gallery="floating-bench.jpg" data-title="Floating Wood Bench">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/floating-bench.jpg" alt="Floating Wood Bench" loading="lazy"></div>
-      <div class="body"><h3>Floating Wood Bench</h3><div class="meta"><span class="cat">Furniture</span></div></div>
-    </div>
-    <div class="card" data-cat="Craft" data-gallery="walle-figure.jpg" data-title="Wall-E Wooden Figure">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/walle-figure.jpg" alt="Wall-E Wooden Figure" loading="lazy"></div>
-      <div class="body"><h3>Wall-E Wooden Figure</h3><div class="meta"><span class="cat">Craft</span></div></div>
-    </div>
-    <div class="card" data-cat="Furniture" data-gallery="craft-table.jpg|craft-table-1.jpg" data-title="Colorful Craft Table">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/craft-table.jpg" alt="Colorful Craft Table" loading="lazy"></div>
-      <div class="body"><h3>Colorful Craft Table</h3><div class="meta"><span class="cat">Furniture</span><span class="count">2 photos</span></div></div>
-    </div>
-    <div class="card" data-cat="Furniture" data-gallery="wardrobe-build.jpg" data-title="Bedroom Wardrobe">
-      <div class="thumb"><span class="newbadge">NEW</span><img src="images/wardrobe-build.jpg" alt="Bedroom Wardrobe" loading="lazy"></div>
-      <div class="body"><h3>Bedroom Wardrobe</h3><div class="meta"><span class="cat">Furniture</span></div></div>
-    </div>
-    <a href="https://www.instructables.com/Garden-Speakers/" target="_blank" class="card" data-cat="Audio">
-      <div class="thumb"><img src="images/garden-speakers.jpg" alt="Garden Speakers" loading="lazy"></div>
-      <div class="body"><h3>Garden Speakers</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 78K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/My-Awesome-little-Boombox/" target="_blank" class="card" data-cat="Audio">
-      <div class="thumb"><img src="images/boombox-little.jpg" alt="My Awesome Little Boombox" loading="lazy"></div>
-      <div class="body"><h3>My Awesome Little Boombox</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 74K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Drywall-TV-Niche/" target="_blank" class="card" data-cat="Home">
-      <div class="thumb"><img src="images/drywall-tv-niche.jpg" alt="Drywall TV Niche" loading="lazy"></div>
-      <div class="body"><h3>Drywall TV Niche</h3><div class="meta"><span class="cat">Home</span><span class="views">👁 50K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/My-BoomBox/" target="_blank" class="card" data-cat="Audio">
-      <div class="thumb"><img src="images/my-boombox.jpg" alt="My BoomBox" loading="lazy"></div>
-      <div class="body"><h3>My BoomBox</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 49K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Plexiglas-Computer/" target="_blank" class="card" data-cat="Tech">
-      <div class="thumb"><img src="images/plexiglas-computer.jpg" alt="Plexiglas Computer" loading="lazy"></div>
-      <div class="body"><h3>Plexiglas Computer</h3><div class="meta"><span class="cat">Tech</span><span class="views">👁 47K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/ToolsWallMount/" target="_blank" class="card" data-cat="Workshop">
-      <div class="thumb"><img src="images/tools-wall-mount.jpg" alt="Tools Wall Mount" loading="lazy"></div>
-      <div class="body"><h3>Tools Wall Mount</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 47K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Drill-Bit-Stand/" target="_blank" class="card" data-cat="Workshop">
-      <div class="thumb"><img src="images/drill-bit-stand.jpg" alt="Drill Bit Stand" loading="lazy"></div>
-      <div class="body"><h3>Drill Bit Stand</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 45K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/LED-Lights-For-Liquor-Bar/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/led-liquor-bar.jpg" alt="LED Lights for Liquor Bar" loading="lazy"></div>
-      <div class="body"><h3>LED Lights for Liquor Bar</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 24K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Greenhouse-Project/" target="_blank" class="card" data-cat="Outdoor">
-      <div class="thumb"><img src="images/greenhouse.jpg" alt="Greenhouse Project" loading="lazy"></div>
-      <div class="body"><h3>Greenhouse Project</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 19K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Mini-BoomBox/" target="_blank" class="card" data-cat="Audio">
-      <div class="thumb"><img src="images/mini-boombox.jpg" alt="Mini BoomBox" loading="lazy"></div>
-      <div class="body"><h3>Mini BoomBox</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 16K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Boombox-MDF/" target="_blank" class="card" data-cat="Audio">
-      <div class="thumb"><img src="images/boombox-mdf.jpg" alt="Boombox MDF" loading="lazy"></div>
-      <div class="body"><h3>Boombox MDF</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 15K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/iPad-Bed-stand-iBed-/" target="_blank" class="card" data-cat="Furniture">
-      <div class="thumb"><img src="images/ibed.jpg" alt="iBed — iPad Bed Stand" loading="lazy"></div>
-      <div class="body"><h3>iBed — iPad Bed Stand</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 13K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Solar-Panel-Lighting/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/solar-lighting.jpg" alt="Solar Panel Lighting" loading="lazy"></div>
-      <div class="body"><h3>Solar Panel Lighting</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 12K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Simhasana-Bench/" target="_blank" class="card" data-cat="Furniture">
-      <div class="thumb"><img src="images/simhasana-bench.jpg" alt="Simhasana Bench" loading="lazy"></div>
-      <div class="body"><h3>Simhasana Bench</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 7.6K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Bicycle-Mount/" target="_blank" class="card" data-cat="Cycling">
-      <div class="thumb"><img src="images/bicycle-mount.jpg" alt="Bicycle Mount" loading="lazy"></div>
-      <div class="body"><h3>Bicycle Mount</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 7.6K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Bedside-Reading-Lamp/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/bedside-lamp.jpg" alt="Bedside Reading Lamp" loading="lazy"></div>
-      <div class="body"><h3>Bedside Reading Lamp</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 6.5K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Abstract-Wood-Wall-Art/" target="_blank" class="card" data-cat="Art">
-      <div class="thumb"><img src="images/abstract-wood-art.jpg" alt="Abstract Wood Wall Art" loading="lazy"></div>
-      <div class="body"><h3>Abstract Wood Wall Art</h3><div class="meta"><span class="cat">Art</span><span class="views">👁 6.1K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Lampshade-For-Livingroom/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/lampshade.jpg" alt="Lampshade for Livingroom" loading="lazy"></div>
-      <div class="body"><h3>Lampshade for Livingroom</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 5.1K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Ceiling-Wooden-Lamp/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/ceiling-lamp.jpg" alt="Ceiling Wooden Lamp" loading="lazy"></div>
-      <div class="body"><h3>Ceiling Wooden Lamp</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 4.1K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Clear-Case-PC/" target="_blank" class="card" data-cat="Tech">
-      <div class="thumb"><img src="images/clear-case-pc.jpg" alt="Clear Case PC" loading="lazy"></div>
-      <div class="body"><h3>Clear Case PC</h3><div class="meta"><span class="cat">Tech</span><span class="views">👁 3.9K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Canvas-Painting/" target="_blank" class="card" data-cat="Art">
-      <div class="thumb"><img src="images/canvas-painting.jpg" alt="Canvas Painting" loading="lazy"></div>
-      <div class="body"><h3>Canvas Painting</h3><div class="meta"><span class="cat">Art</span><span class="views">👁 3.8K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/iPad-for-Bathroom-iTiolet-/" target="_blank" class="card" data-cat="Tech">
-      <div class="thumb"><img src="images/itoilet.jpg" alt="iToilet — iPad for Bathroom" loading="lazy"></div>
-      <div class="body"><h3>iToilet — iPad for Bathroom</h3><div class="meta"><span class="cat">Tech</span><span class="views">👁 3.4K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Bubble-Gum-Machine-Costume/" target="_blank" class="card" data-cat="Craft">
-      <div class="thumb"><img src="images/bubblegum-costume.jpg" alt="Bubble Gum Machine Costume" loading="lazy"></div>
-      <div class="body"><h3>Bubble Gum Machine Costume</h3><div class="meta"><span class="cat">Craft</span><span class="views">👁 3.3K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Canvas-Wall-Frame/" target="_blank" class="card" data-cat="Art">
-      <div class="thumb"><img src="images/canvas-frame.jpg" alt="Canvas Wall Frame" loading="lazy"></div>
-      <div class="body"><h3>Canvas Wall Frame</h3><div class="meta"><span class="cat">Art</span><span class="views">👁 3.0K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Wardrobe-Painting/" target="_blank" class="card" data-cat="Home">
-      <div class="thumb"><img src="images/wardrobe-painting.jpg" alt="Wardrobe Painting" loading="lazy"></div>
-      <div class="body"><h3>Wardrobe Painting</h3><div class="meta"><span class="cat">Home</span><span class="views">👁 2.9K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Shoe-Storage-Rack/" target="_blank" class="card" data-cat="Furniture">
-      <div class="thumb"><img src="images/shoe-rack.jpg" alt="Shoe Storage Rack" loading="lazy"></div>
-      <div class="body"><h3>Shoe Storage Rack</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 2.7K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Standing-Floor-Lamp/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/floor-lamp.jpg" alt="Standing Floor Lamp" loading="lazy"></div>
-      <div class="body"><h3>Standing Floor Lamp</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 2.6K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Building-a-Planter/" target="_blank" class="card" data-cat="Outdoor">
-      <div class="thumb"><img src="images/planter-build.jpg" alt="Building a Planter" loading="lazy"></div>
-      <div class="body"><h3>Building a Planter</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 2.5K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Repair-Speaker-Adhesives-foam/" target="_blank" class="card" data-cat="Audio">
-      <div class="thumb"><img src="images/speaker-repair.jpg" alt="Repair Speaker Foam" loading="lazy"></div>
-      <div class="body"><h3>Repair Speaker Foam</h3><div class="meta"><span class="cat">Audio</span><span class="views">👁 2.5K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Dollie-for-Home-User/" target="_blank" class="card" data-cat="Workshop">
-      <div class="thumb"><img src="images/dollie.jpg" alt="Dollie for Home User" loading="lazy"></div>
-      <div class="body"><h3>Dollie for Home User</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 2.4K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/iPhone-Bike-Stand/" target="_blank" class="card" data-cat="Cycling">
-      <div class="thumb"><img src="images/iphone-bike.jpg" alt="iPhone Bike Stand" loading="lazy"></div>
-      <div class="body"><h3>iPhone Bike Stand</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 2.2K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/My-Small-Tools-Workshop/" target="_blank" class="card" data-cat="Workshop">
-      <div class="thumb"><img src="images/small-workshop.jpg" alt="My Small Tools Workshop" loading="lazy"></div>
-      <div class="body"><h3>My Small Tools Workshop</h3><div class="meta"><span class="cat">Workshop</span><span class="views">👁 3.2K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Rear-cage-for-bottles-for-road-bike/" target="_blank" class="card" data-cat="Cycling">
-      <div class="thumb"><img src="images/rear-cage.jpg" alt="Rear Cage for Road Bike" loading="lazy"></div>
-      <div class="body"><h3>Rear Cage for Road Bike</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 1.9K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Bicycle-Stand-eAsy-Simple/" target="_blank" class="card" data-cat="Cycling">
-      <div class="thumb"><img src="images/bike-stand.jpg" alt="Bicycle Stand — Easy & Simple" loading="lazy"></div>
-      <div class="body"><h3>Bicycle Stand — Easy & Simple</h3><div class="meta"><span class="cat">Cycling</span><span class="views">👁 3.5K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Fruit-Grabber/" target="_blank" class="card" data-cat="Outdoor">
-      <div class="thumb"><img src="images/fruit-grabber.jpg" alt="Fruit Grabber" loading="lazy"></div>
-      <div class="body"><h3>Fruit Grabber</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 1.4K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/iPad-Mini-inside-a-book/" target="_blank" class="card" data-cat="Craft">
-      <div class="thumb"><img src="images/ipad-book.jpg" alt="iPad Mini Inside a Book" loading="lazy"></div>
-      <div class="body"><h3>iPad Mini Inside a Book</h3><div class="meta"><span class="cat">Craft</span><span class="views">👁 1.1K</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/planter-Build-simple/" target="_blank" class="card" data-cat="Outdoor">
-      <div class="thumb"><img src="images/planter-simple.jpg" alt="Planter Build — Simple" loading="lazy"></div>
-      <div class="body"><h3>Planter Build — Simple</h3><div class="meta"><span class="cat">Outdoor</span><span class="views">👁 994</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/LED-Light-For-TV/" target="_blank" class="card" data-cat="Lighting">
-      <div class="thumb"><img src="images/led-tv.jpg" alt="LED Light for TV" loading="lazy"></div>
-      <div class="body"><h3>LED Light for TV</h3><div class="meta"><span class="cat">Lighting</span><span class="views">👁 945</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Dining-Room-Hive-Shelving/" target="_blank" class="card" data-cat="Furniture">
-      <div class="thumb"><img src="images/hive-shelving.jpg" alt="Dining Room Hive Shelving" loading="lazy"></div>
-      <div class="body"><h3>Dining Room Hive Shelving</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 884</span></div></div>
-    </a>
-    <a href="https://www.instructables.com/Coffee-Table/" target="_blank" class="card" data-cat="Furniture">
-      <div class="thumb"><img src="images/coffee-table.jpg" alt="Coffee Table" loading="lazy"></div>
-      <div class="body"><h3>Coffee Table</h3><div class="meta"><span class="cat">Furniture</span><span class="views">👁 760</span></div></div>
-    </a>
-  </div>
-  <div class="more"><a href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" class="btn btn-fill">View all 200+ projects →</a></div>
-</section>
+  <div class="tabs"><div class="tab on"><span class="ic">⊞</span> Builds</div></div>
 
-<section id="about" class="wrap"><div class="about">
-  <h2>Hey, I'm Roey 👋</h2>
-  <p>From Tel Aviv, Israel. In my free time I love building stuff from scratch. It always starts with a crazy idea — and then I realize it's <span class="hl">too dangerous, unachievable, or just too big</span> — so I draw on a small piece of paper what I CAN do.</p>
-  <p style="margin-top:18px">Ideas come from design magazines, friends, and the internet. I collect a bunch of cool ones and then try to create them with my bare hands. Most people would just buy the product — but <span class="hl">the satisfaction of making something yourself is awesome.</span> That's why I'm here.</p>
-</div></section>
+  <div id="grid"></div>
 
-<section id="contact" class="wrap"><footer>
-  <div class="social">
-    <a href="https://www.instructables.com/member/RoeyLeon/" target="_blank">Instructables</a>
-    <a href="https://www.instagram.com/roeyleon/" target="_blank">Instagram</a>
-    <a href="mailto:roeyleon@gmail.com">Email</a>
-  </div>
-  <p class="fine">© 2026 Roey Leon · Built by hand · Tel Aviv, IL</p>
-</footer></section>
+  <section id="about"><div class="about">
+    <h2>Hey, I'm Roey 👋</h2>
+    <p>From Tel Aviv. In my free time I love building things from scratch. It always starts with a crazy idea — then I realize it's <span class="hl-w">too dangerous, impossible, or just way too big</span> — so I sketch on a small piece of paper what I actually <i>can</i> pull off.</p>
+    <p>Ideas come from design magazines, friends, and the internet. I hoard the cool ones and try to make them by hand. Most people would just buy the thing — but <span class="hl-w">the satisfaction of building it yourself is unbeatable.</span> That's why I'm here.</p>
+  </div></section>
 
-<div class="lb" id="lb">
-  <span class="lbclose" id="lbclose">×</span>
-  <div class="lbtitle" id="lbtitle"></div>
-  <img id="lbimg" src="" alt="">
-  <div class="lbnav">
-    <button id="lbprev">‹ Prev</button>
-    <span class="lbcount" id="lbcount"></span>
-    <button id="lbnext">Next ›</button>
+  <footer>
+    <div class="fsocial">
+      <a class="btn btn-ghost" href="https://www.instructables.com/member/RoeyLeon/" target="_blank" rel="noopener">Instructables</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-ghost" href="mailto:roeyleon@gmail.com">Email</a>
+    </div>
+    <p class="fine">© 2026 Roey Leon · Built by hand · Tel Aviv, IL</p>
+  </footer>
+</div>
+
+<!-- modal -->
+<div class="modal" id="modal">
+  <button class="mclose" id="mclose" aria-label="Close">×</button>
+  <div class="sheet" id="sheet">
+    <div class="stage" id="stage">
+      <img id="mimg" alt="">
+      <div class="playwrap" id="playwrap" style="display:none"><span>▶</span></div>
+      <button class="arrow prev" id="mprev" aria-label="Previous">‹</button>
+      <button class="arrow next" id="mnext" aria-label="Next">›</button>
+      <div class="dots" id="mdots"></div>
+    </div>
+    <div class="side">
+      <div class="side-top">
+        <img id="sideAvatar" alt="">
+        <div class="h">roeyleon <small>Tel Aviv, IL</small></div>
+      </div>
+      <div class="side-body">
+        <span class="chip" id="mchip"></span>
+        <h2 id="mtitle"></h2>
+        <p id="mcap"></p>
+        <div class="side-meta" id="mmeta"></div>
+      </div>
+      <div class="side-cta" id="mcta"></div>
+    </div>
   </div>
 </div>
 
 <script>
-  const btns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('.card');
-  btns.forEach(b=>b.addEventListener('click',()=>{
-    btns.forEach(x=>x.classList.remove('active')); b.classList.add('active');
-    const f=b.dataset.f;
-    cards.forEach(c=>c.classList.toggle('hide', f!=='all' && c.dataset.cat!==f));
-  }));
-  // lightbox for cards with data-gallery
-  const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
-        lbtitle=document.getElementById('lbtitle'),lbcount=document.getElementById('lbcount');
-  let gal=[],gi=0;
-  function show(){lbimg.src='images/'+gal[gi];lbcount.textContent=(gi+1)+' / '+gal.length;}
-  document.querySelectorAll('.card[data-gallery]').forEach(c=>{
-    c.addEventListener('click',()=>{
-      gal=c.dataset.gallery.split('|');gi=0;
-      lbtitle.textContent=c.dataset.title;show();lb.classList.add('open');
-    });
+/* ============================================================
+   IMAGES
+   Primary source = compressed files in  images/<slug>.jpg
+   (created by running Optimize-Images.bat once).
+   If that file isn't there yet, it falls back automatically
+   to the original in  pictures for site/.
+
+   VIDEOS  (add later)
+   To attach a YouTube video to a project, add  yt:"<link>"
+   to that project below. Accepts any of:
+     yt:"https://youtu.be/ABCD1234"
+     yt:"https://www.youtube.com/watch?v=ABCD1234"
+     yt:"ABCD1234"
+   A ▶ icon then appears on the tile, and a play button in the
+   pop-up plays the video. (Or just send Roey-style: "Concrete
+   Clock -> <link>" and it gets wired in.)
+   ============================================================ */
+const NEWDIR="images/", OLDDIR="pictures for site/";
+const NEW=(s,k)=> NEWDIR + s + (k?("-"+(k+1)):"") + ".jpg";
+const OLD=f=> OLDDIR + encodeURIComponent(f);
+function setImg(el, slug, files, k){
+  el.onerror=function(){ el.onerror=null; el.src=OLD(files[k]); };
+  el.src=NEW(slug,k);
+}
+function ytId(v){
+  if(!v) return "";
+  let m=v.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{6,})/);
+  return m?m[1]:v.trim();
+}
+
+const CATS=[
+  ["All","✦"],["Furniture","🪑"],["Lighting","💡"],["Kitchen","🍽️"],
+  ["Wall Art","🖼️"],["Audio","🔊"],["Home","🏠"],["Outdoor","🌿"],
+  ["Workshop","🛠️"],["Tech","💻"],["Fun","🎉"]
+];
+
+/* t=title  c=category  s=slug  f=original files  v=views  u=guide url  p=pin  cap=caption  yt=video */
+const P=[
+  {t:"Garden Speakers", c:"Audio", s:"garden-speakers", v:"78K", u:"https://www.instructables.com/Garden-Speakers/", f:["garden speakers (2).jpg","garden speakers (3).jpg","graden speakers.png"], cap:"Outdoor speakers built to survive the weather and still sound huge."},
+  {t:"My Little Boombox", c:"Audio", s:"mini-boombox", v:"74K", u:"https://www.instructables.com/My-Awesome-little-Boombox/", f:["mini boombox _v2.png","Mini BoomBox (2).jpg"], cap:"Tiny enclosure, surprisingly big sound."},
+  {t:"My Boombox", c:"Audio", s:"boombox", v:"49K", u:"https://www.instructables.com/My-BoomBox/", f:["boombox.jpg","BoomBox XL.jpg","boombox _v1_xl.png"], cap:"A handmade boombox — big sound, bigger fun."},
+  {t:"Living Room TV Wall", c:"Home", s:"tv-wall", v:"50K", u:"https://www.instructables.com/Drywall-TV-Niche/", f:["building a wall.jpg","בניית קיר מגבס.png"], cap:"Built a drywall niche to float the TV and hide the cables."},
+  {t:"Plexiglass PC Build", c:"Tech", s:"plexiglass-pc", v:"47K", u:"https://www.instructables.com/Plexiglas-Computer/", f:["Plexiglass Computer.jpg","clear plexyglass computer.png"], cap:"A see-through computer case cut and bonded from clear acrylic."},
+  {t:"Tool Wall Organizer", c:"Workshop", s:"tool-wall", v:"47K", u:"https://www.instructables.com/ToolsWallMount/", f:["workshop tools (1).jpg","workshop tools (2).jpg","workshop tools (3).jpg","workshop tools (4).jpg"], cap:"Every tool gets a home on the wall — a place for everything."},
+  {t:"Drill Bit Stand", c:"Workshop", s:"drill-bit-stand", v:"45K", u:"https://www.instructables.com/Drill-Bit-Stand/", f:["drill bit stand.png"], cap:"A tidy wooden index for every drill bit."},
+  {t:"Home Greenhouse", c:"Outdoor", s:"greenhouse", v:"19K", u:"https://www.instructables.com/Greenhouse-Project/", f:["חממה ביתית .png"], cap:"A compact backyard greenhouse for year-round growing."},
+  {t:"iBed — iPad Bed Stand", c:"Tech", s:"ipad-bed-stand", v:"13K", u:"https://www.instructables.com/iPad-Bed-stand-iBed-/", f:["ipad bed stand.png"], cap:"Watch in bed, hands free. The iBed."},
+  {t:"GoPro / Bike Mount", c:"Tech", s:"gopro-mount", v:"7.6K", u:"https://www.instructables.com/Bicycle-Mount/", f:["gopro mount.jpg"], cap:"A solid handlebar mount for the action cam."},
+  {t:"Simhasana Yoga Bench", c:"Furniture", s:"simhasana-bench", v:"7.6K", u:"https://www.instructables.com/Simhasana-Bench/", f:["Simasanha Bench for Yoga.jpg"], cap:"A low wooden bench for the lion pose."},
+  {t:"Bedside Reading Lamp", c:"Lighting", s:"bedside-lamp", v:"6.5K", u:"https://www.instructables.com/Bedside-Reading-Lamp/", f:["bedside lamp.jpg","mini bedside light.jpg"], cap:"A warm little lamp for late-night chapters."},
+  {t:"Abstract Wood Wall Art", c:"Wall Art", s:"abstract-wood-art", v:"6.1K", u:"https://www.instructables.com/Abstract-Wood-Wall-Art/", f:["פריט עץ אבסטרקטי.jpg","פריט אבסטרקטי מעץ (2).jpg"], cap:"Geometry, grain, and shadow on the wall."},
+  {t:"Living Room Lampshade", c:"Lighting", s:"lampshade", v:"5.1K", u:"https://www.instructables.com/Lampshade-For-Livingroom/", f:["Living Room lamp shade.jpg"], cap:"A custom shade that throws a soft pattern."},
+  {t:"Ceiling Wooden Lamp", c:"Lighting", s:"ceiling-lamp", v:"4.1K", u:"https://www.instructables.com/Ceiling-Wooden-Lamp/", f:["מנורת תקרה לסלון.jpg","מנורה לתקרה בסלון.jpg"], cap:"A statement ceiling fixture, all wood."},
+  {t:"Bike Stand", c:"Tech", s:"bike-stand", v:"3.5K", u:"https://www.instructables.com/Bicycle-Stand-eAsy-Simple/", f:["bike stand.png","bike stand XL.png"], cap:"Easy, simple, and it just works."},
+  {t:"iToilet — iPad Bathroom Mount", c:"Tech", s:"ipad-toilet-mount", v:"3.4K", u:"https://www.instructables.com/iPad-for-Bathroom-iTiolet-/", f:["ipad toilt mount.png"], cap:"Because some reading happens in there too."},
+  {t:"My Small Tools Workshop", c:"Workshop", s:"workshop-tour", v:"3.2K", u:"https://www.instructables.com/My-Small-Tools-Workshop/", f:["panoramic picture of workshop.jpg"], cap:"The little room where all of this happens."},
+  {t:"Shoe Storage Rack", c:"Furniture", s:"shoe-rack", v:"2.7K", u:"https://www.instructables.com/Shoe-Storage-Rack/", f:["shoe rack.jpg","Shoes Rack.png","shoes stand.jpg"], cap:"A clean rack that finally tames the hallway."},
+  {t:"Standing Floor Lamp", c:"Lighting", s:"floor-lamp", v:"2.6K", u:"https://www.instructables.com/Standing-Floor-Lamp/", f:["standing floor lamp.jpg","מנורה עומדת.jpg","Floor lamp_v5.jpg"], cap:"A tall, slim floor lamp for the reading corner."},
+  {t:"Wood Planters", c:"Outdoor", s:"wood-planter", v:"2.5K", u:"https://www.instructables.com/Building-a-Planter/", f:["Planter.jpg","planter_v2.png","planter_v3.jpg","planter.png","wood planters -mini.jpg","Planter_!.jpg"], cap:"Simple wooden planters in a few sizes."},
+  {t:"iPad Mini Inside a Book", c:"Fun", s:"ipad-book", v:"1.1K", u:"https://www.instructables.com/iPad-Mini-inside-a-book/", f:["iPad Book Present for Mom.png"], cap:"A hollowed book that hides an iPad mini — a gift for Mom."},
+  {t:"Dining Room Hive Shelving", c:"Furniture", s:"hive-shelving", v:"884", u:"https://www.instructables.com/Dining-Room-Hive-Shelving/", f:["מדפים לפינת אוכל.jpg"], cap:"Honeycomb shelves for the dining corner."},
+
+  {t:"End-Grain Cutting Boards", c:"Kitchen", s:"cutting-boards", f:["cutting boards (1).jpg","cutting boards (9).jpg","cutting boards (17).jpg","cutting boards (24).jpg","serving board (2).jpg","קרשי חיתוך (7).jpg","קרש חיתוך_2 (5).jpg","קרשי יחתוך נוספים (5).jpg"], cap:"Checkerboard and brick-pattern boards in mixed hardwoods."},
+  {t:"Epoxy & Olive-Wood Tray", c:"Kitchen", s:"epoxy-tray", f:["epoxy serving tray (1).jpg"], cap:"A serving tray pouring olive wood into clear epoxy."},
+  {t:"Wooden Salt & Pepper Mills", c:"Kitchen", s:"salt-pepper", f:["salt and pepper from wood.jpg"], cap:"Turned mills with real grinders inside."},
+  {t:"Wooden Shot Glasses", c:"Kitchen", s:"shot-glasses", f:["כוסות צ'ייסר.jpg"], cap:"Tiny turned cups for the good stuff."},
+  {t:"Catch-All Bowl", c:"Kitchen", s:"catchall-bowl", f:["קערה לחפצים.jpg"], cap:"A bowl for keys, coins, and everything that ends up by the door."},
+  {t:"Mini Wood Figures", c:"Fun", s:"wood-figures", f:["Small Wooden Figures (1).jpg","Small Wooden Figures (2).jpg","Small Wooden Figures (3).jpg","Small Wooden Figures (4).jpg"], cap:"Little carved characters from offcuts."},
+  {t:"Wall-E Costume", c:"Fun", s:"walle-costume", f:["wall-e costume.png"], cap:"A wearable Wall-E. Yes, really."},
+  {t:"M&M Machine", c:"Fun", s:"mm-machine", f:["M&M machine.jpg"], cap:"A candy dispenser that's almost too fun."},
+  {t:"Gumball Machine 🏆", c:"Fun", s:"gumball-machine", p:"1st place", f:["מכונת מסטיקים - זוכה תחרות מקום 1.png"], cap:"First place in a design contest — a handmade gumball machine."},
+  {t:"Wood & Concrete Toy Car", c:"Fun", s:"toy-car", f:["מכונית מעץ וגלגלי בטון.jpg"], cap:"A toy car with a wooden body and cast-concrete wheels."},
+  {t:"Kids Learning Tower", c:"Fun", s:"learning-tower", f:["Learning Tower for Kids.jpg","Another learning Tower for kids.jpg","learning tower_v4.jpg","מגדל למידה 2.jpg"], cap:"A safe step-up so little ones can help at the counter."},
+  {t:"Toddler Table", c:"Furniture", s:"toddler-table", f:["toddler table (1).jpg"], cap:"A pint-sized table built to kid scale."},
+  {t:"Dresser / Chest of Drawers", c:"Furniture", s:"dresser", f:["dresser.jpg","Dresser (1).jpg","Dresser (2).jpg","Dresser (3).jpg","Chest of drawers.jpg","chests.jpeg","chests (3).jpg","chests (4).jpg"], cap:"A full chest of drawers, built from scratch."},
+  {t:"Bathroom Dresser", c:"Furniture", s:"bathroom-dresser", f:["Bathroom dresser.jpg"], cap:"A moisture-friendly vanity for the bathroom."},
+  {t:"Bedside Stand", c:"Furniture", s:"bedside-stand", f:["bedside stand.jpg"], cap:"A compact nightstand with a drawer."},
+  {t:"Bed Headboard", c:"Furniture", s:"headboard", f:["Bed backrest.jpg"], cap:"A padded-meets-wood headboard for the bed."},
+  {t:"Footstool & Stool", c:"Furniture", s:"stool", f:["stool.jpg","foot stool.png","footstool (2).jpg"], cap:"Solid little seats and footrests."},
+  {t:"Floating Shelves", c:"Furniture", s:"floating-shelves", f:["shelves.jpg","מדפים .png"], cap:"Bracket-free shelves that seem to float."},
+  {t:"Spice Shelves", c:"Kitchen", s:"spice-shelves", f:["spices shelves (1).jpg","spices shelves (2).jpg","מדפים לתבלינים (1).jpg","מדפים לתבלינים (2).jpg"], cap:"A wall of jars, all within reach."},
+  {t:"RC Car Display Shelves", c:"Home", s:"rc-shelves", f:["rc cars shelves.jpg"], cap:"Display shelving built for the RC collection."},
+  {t:"Wood Storage Cabinet", c:"Workshop", s:"wood-storage", f:["wood storage.jpg"], cap:"A rack to keep lumber and offcuts sorted."},
+  {t:"Bedroom Makeover", c:"Home", s:"bedroom", f:["Bedroom Design.jpg","renew bedroom closet.jpg"], cap:"Refreshed the bedroom and rebuilt the closet."},
+  {t:"Branch LED Light", c:"Lighting", s:"branch-light", f:["branch light with led.jpg","mini led brances.jpg"], cap:"A real branch wired with warm LEDs."},
+  {t:"Dining Table Lamp", c:"Lighting", s:"dining-lamp", f:["Lamp for Dining Table.jpg","מנורת לפינת אוכל.png"], cap:"A pendant sized for the dining table."},
+  {t:"LED Standing Light", c:"Lighting", s:"led-standing-light", f:["standing led light.jpg"], cap:"A tall LED column for ambient light."},
+  {t:"Decorative Ceiling Light", c:"Lighting", s:"decorative-light", f:["decorative lamp.jpg"], cap:"A sculptural fixture that's the centerpiece of the room."},
+  {t:"Emergency Light", c:"Tech", s:"emergency-light", f:["emergency light.jpg"], cap:"A DIY rechargeable light for when the power cuts."},
+  {t:"Colorful Wood Cube Art", c:"Wall Art", s:"cube-art", f:["cube wall art.jpg","cubes picture.jpg","wooden cube pictures.jpg"], cap:"Painted wooden cubes arranged into wall art."},
+  {t:"LED Mountain Wood Art", c:"Wall Art", s:"mountain-art", f:["mountains  wood picture with led.jpg","wood wall art (4).jpg"], cap:"Layered wooden mountains backlit with LEDs."},
+  {t:"LED Illuminated Wall Art", c:"Wall Art", s:"led-wall-art", f:["led illuminated wall art.jpg"], cap:"A wall piece that glows from behind."},
+  {t:"Dining-Corner Wood Picture", c:"Wall Art", s:"dining-wood-art", f:["תמונה מעץ לפינת אוכל (1).jpg","תמונה מעץ לפינת אוכל (2).jpg","תמונה מעץ לפינת אוכל (3).jpg"], cap:"A wooden art panel made for the dining nook."},
+  {t:"Living Room Picture Set", c:"Wall Art", s:"living-room-art", f:["living room picture set.jpg","living room pictures.jpg","תמונות לסלון.jpg"], cap:"A coordinated set of framed pieces for the living room."},
+  {t:"Picture Frame Build", c:"Wall Art", s:"picture-frames", f:["בניית מסגרת לתמונות.jpg"], cap:"Building custom frames from raw stock."},
+  {t:"Abstract Bedroom Art", c:"Wall Art", s:"abstract-bedroom", f:["תמונה אבסטרקטית לחדר השינה.jpg"], cap:"An abstract piece sized for the bedroom wall."},
+  {t:"Abstract Bathroom Art", c:"Wall Art", s:"abstract-bathroom", f:["תמונה אבסטרקטית לשירותים.jpg"], cap:"A small abstract for the bathroom."},
+  {t:"Abstract Art Piece", c:"Wall Art", s:"abstract-art", f:["תמונה אבסטרקטית.jpg"], cap:"Shapes and texture, no rules."},
+  {t:"Mirror Frame with Stones", c:"Home", s:"mirror-frame", f:["מסגרת למראה.jpg"], cap:"A mirror framed with colorful inlaid stones."},
+  {t:"Concrete Planters", c:"Outdoor", s:"concrete-planter", f:["Concrete Planter.jpg","עציצים.jpg"], cap:"Cast-concrete pots with a raw, modern look."},
+  {t:"Living Plant Wall", c:"Outdoor", s:"living-wall", f:["living wall.jpg","living wall (2).jpg","Living Wall_1.jpg","living wall-jungle.jpg","led grow light for living wall.jpeg","plants wall mount.jpg","planter wall mount.jpg"], cap:"A vertical garden — with a grow light for the shady spots."},
+  {t:"Folding Garden Table", c:"Outdoor", s:"garden-table", f:["שולחן נייד לגינה (2).jpg"], cap:"A portable table that folds flat for the garden."},
+  {t:"Beach Chair", c:"Outdoor", s:"beach-chair", f:["beach chair.jpg"], cap:"A foldable wooden chair for the sand."},
+  {t:"Bench Grinder Wheel", c:"Workshop", s:"grinder", f:["grinding wheel.jpg"], cap:"Refurbished and mounted bench grinder."},
+  {t:"Glass Stand for Bottles", c:"Home", s:"bottle-stand", f:["מעמד זכוכית לבקבוקי אלכוהול.png"], cap:"A lit stand to show off the bar bottles."},
+  {t:"Tissue Box Cover", c:"Home", s:"tissue-box", f:["tissue box.jpg"], cap:"A wooden cover that hides the ugly box."},
+  {t:"Coat Hanger", c:"Home", s:"coat-hanger", f:["coat hange (2).jpg"], cap:"A wall-mounted rack for coats and bags."},
+  {t:"Key Holder", c:"Home", s:"key-holder", f:["מעמד למפתחות.jpg"], cap:"A by-the-door spot so keys never vanish."},
+  {t:"Paper Organizer", c:"Home", s:"paper-organizer", f:["מעמד לדפים.jpg","מעמד לדפים מגנטי למקרר.jpg"], cap:"Desk and magnetic-fridge organizers for paper."},
+  {t:"Wooden Mezuzahs", c:"Home", s:"mezuzah", f:["mezuza (1).jpg","mezuza (3).jpg","mezuza (4).jpg","מזוזות (3).jpg"], cap:"Hand-made mezuzah cases in different woods."},
+  {t:"Vision Board", c:"Home", s:"vision-board", f:["vision board.jpg"], cap:"A board to keep the next ideas in sight."},
+  {t:"Torched Wood Finish", c:"Workshop", s:"torched-wood", f:["torch wood .jpg"], cap:"Shou-sugi-ban style — burning wood for a deep finish."},
+  {t:"Bath Mat", c:"Home", s:"bath-mat", f:["carpet for bath.jpg","shower mat.jpg"], cap:"A slatted wooden mat for outside the shower."},
+  {t:"Shower Bench", c:"Home", s:"shower-bench", f:["shower bench.png"], cap:"A water-friendly bench for the shower."},
+  {t:"Concrete Clock", c:"Home", s:"concrete-clock", f:["שעון מבטון.jpg"], cap:"A minimalist clock cast in concrete."},
+  {t:"Epoxy Clocks", c:"Home", s:"epoxy-clock", f:["שעוני אפוקסי.jpg"], cap:"Wall clocks poured in colored epoxy."},
+  {t:"Laptop Cooling Stand", c:"Tech", s:"laptop-cooler", f:["איוורור תחתון למחשב נייד (1).jpg","איוורור תחתון למחשב נייד (2).jpg"], cap:"A stand with fans to cool the laptop from below."},
+  {t:"Phone Stand", c:"Tech", s:"phone-stand", f:["phone stand.jpg"], cap:"A simple desk stand for the phone."},
+  {t:"Scooter LED + Repaint", c:"Tech", s:"scooter", f:["scooter led.jpg","scooter paint.jpg","בסיס לקורקינט - משטח עמידה.jpg"], cap:"Repainted the scooter, added LEDs and a new deck."},
+  {t:"Drone Repaint", c:"Tech", s:"drone", f:["צביעת רחפן.jpg"], cap:"A fresh custom paint job on the drone."},
+  {t:"Pull-Up & Dip Bars", c:"Outdoor", s:"gym-bars", f:["מתקן מתח ומקבילים.jpg","מכשיר כושר.jpg"], cap:"A home gym rig — pull-up bar and parallel bars."},
+  {t:"Bike Car Ramp", c:"Outdoor", s:"bike-ramp", f:["רמפה לאופניים לרכב (2).jpg"], cap:"A ramp to roll the bike into the car."},
+  {t:"Car Roof Rack", c:"Outdoor", s:"roof-rack", f:["גגון לרכב (4).jpg"], cap:"A custom roof rack for extra gear."}
+];
+
+/* ── story highlights ── */
+const hlWrap=document.getElementById("highlights");
+let activeCat="All";
+CATS.forEach(([name,emoji])=>{
+  const b=document.createElement("button");
+  b.className="hl"+(name==="All"?" active":"");
+  b.innerHTML=`<span class="bubble">${emoji}</span><span class="lbl">${name}</span>`;
+  b.onclick=()=>{activeCat=name;document.querySelectorAll(".hl").forEach(x=>x.classList.remove("active"));b.classList.add("active");render();};
+  hlWrap.appendChild(b);
+});
+
+/* ── avatars ── */
+setImg(document.getElementById("avatarImg"),"workshop-tour",["panoramic picture of workshop.jpg"],0);
+setImg(document.getElementById("sideAvatar"),"workshop-tour",["panoramic picture of workshop.jpg"],0);
+document.getElementById("countNum").textContent="200+";
+
+/* ── render grid ── */
+const grid=document.getElementById("grid");
+function render(){
+  grid.innerHTML="";
+  const list=P.filter(p=>activeCat==="All"||p.c===activeCat);
+  if(!list.length){grid.innerHTML='<div class="empty">No builds here yet.</div>';return;}
+  list.forEach(p=>{
+    const idx=P.indexOf(p);
+    const el=document.createElement("div");
+    el.className="post";
+    el.innerHTML=`
+      ${p.p?`<span class="pin">🏆 ${p.p}</span>`:``}
+      ${p.f.length>1?`<span class="multi">❑</span>`:``}
+      ${p.yt?`<span class="vbadge"><span>▶</span></span>`:``}
+      <img alt="${p.t}" loading="lazy">
+      <div class="ov">
+        <h3>${p.t}</h3>
+        <div class="row">
+          <span>${p.f.length>1?p.f.length+" photos":"1 photo"}</span>
+          ${p.v?`<span>👁 ${p.v}</span>`:``}
+        </div>
+      </div>`;
+    setImg(el.querySelector("img"),p.s,p.f,0);
+    el.onclick=()=>openModal(idx);
+    grid.appendChild(el);
   });
-  document.getElementById('lbnext').onclick=()=>{gi=(gi+1)%gal.length;show();};
-  document.getElementById('lbprev').onclick=()=>{gi=(gi-1+gal.length)%gal.length;show();};
-  document.getElementById('lbclose').onclick=()=>lb.classList.remove('open');
-  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
-  document.addEventListener('keydown',e=>{
-    if(!lb.classList.contains('open'))return;
-    if(e.key==='Escape')lb.classList.remove('open');
-    if(e.key==='ArrowRight')document.getElementById('lbnext').click();
-    if(e.key==='ArrowLeft')document.getElementById('lbprev').click();
-  });
+}
+render();
+
+/* ── modal / carousel / video ── */
+const modal=document.getElementById("modal"), stage=document.getElementById("stage"),
+      mimg=document.getElementById("mimg"), playwrap=document.getElementById("playwrap"),
+      mdots=document.getElementById("mdots"), mprev=document.getElementById("mprev"),
+      mnext=document.getElementById("mnext");
+let cur=null, gi=0;
+
+function stopVideo(){
+  const fr=stage.querySelector("iframe"); if(fr) fr.remove();
+  mimg.style.display=""; 
+}
+function showSlide(){
+  stopVideo();
+  setImg(mimg,cur.s,cur.f,gi);
+  [...mdots.children].forEach((d,k)=>d.classList.toggle("on",k===gi));
+  playwrap.style.display = cur.yt ? "grid" : "none";
+}
+function openModal(i){
+  cur=P[i]; gi=0;
+  document.getElementById("mchip").textContent=cur.c;
+  document.getElementById("mtitle").textContent=cur.t;
+  document.getElementById("mcap").textContent=cur.cap||"";
+  document.getElementById("mmeta").innerHTML =
+    `<span>📷 ${cur.f.length} photo${cur.f.length>1?"s":""}</span>`
+    + (cur.v?`<span>👁 ${cur.v} views</span>`:``)
+    + (cur.yt?`<span>🎬 video</span>`:``)
+    + (cur.p?`<span>🏆 ${cur.p}</span>`:``);
+  document.getElementById("mcta").innerHTML =
+    (cur.yt?`<a class="btn btn-ghost" style="justify-content:center" href="https://youtu.be/${ytId(cur.yt)}" target="_blank" rel="noopener">▶ Watch on YouTube</a>`:``)
+    + (cur.u
+        ? `<a class="btn btn-primary" style="justify-content:center" href="${cur.u}" target="_blank" rel="noopener">↗ View full build guide</a>`
+        : `<a class="btn btn-ghost" style="justify-content:center" href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener">↗ More builds on Instructables</a>`);
+  const multi=cur.f.length>1;
+  mprev.style.display=mnext.style.display=multi?"grid":"none";
+  mdots.innerHTML=multi?cur.f.map((_,k)=>`<i class="${k===0?"on":""}"></i>`).join(""):"";
+  showSlide();
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+playwrap.onclick=e=>{
+  e.stopPropagation();
+  if(!cur.yt) return;
+  const fr=document.createElement("iframe");
+  fr.src=`https://www.youtube.com/embed/${ytId(cur.yt)}?autoplay=1&rel=0`;
+  fr.allow="autoplay; encrypted-media; fullscreen";
+  fr.allowFullscreen=true;
+  mimg.style.display="none"; playwrap.style.display="none";
+  mprev.style.display=mnext.style.display="none";
+  stage.appendChild(fr);
+};
+mnext.onclick=e=>{e.stopPropagation();gi=(gi+1)%cur.f.length;showSlide();if(cur.f.length>1){mprev.style.display=mnext.style.display="grid";}};
+mprev.onclick=e=>{e.stopPropagation();gi=(gi-1+cur.f.length)%cur.f.length;showSlide();if(cur.f.length>1){mprev.style.display=mnext.style.display="grid";}};
+function closeModal(){stopVideo();modal.classList.remove("open");document.body.style.overflow="";}
+document.getElementById("mclose").onclick=closeModal;
+modal.onclick=e=>{if(e.target===modal)closeModal();};
+document.addEventListener("keydown",e=>{
+  if(!modal.classList.contains("open"))return;
+  if(e.key==="Escape")closeModal();
+  if(cur&&cur.f.length>1){
+    if(e.key==="ArrowRight")mnext.onclick(e);
+    if(e.key==="ArrowLeft")mprev.onclick(e);
+  }
+});
 </script>
 </body>
 </html>
