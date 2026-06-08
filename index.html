@@ -3,232 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roey Leon · @roeyleon — Maker / Builder / Fixer</title>
-<meta name="description" content="Roey Leon — maker, builder, fixer from Tel Aviv. 200+ handmade projects: furniture, lighting, woodwork, audio, and the occasional Wall-E.">
+<title>ROEY LEON — Maker / Builder / Fixer</title>
+<meta name="description" content="Roey Leon — maker, builder, fixer from Tel Aviv. 200+ handmade builds: furniture, lighting, woodwork, audio, and the occasional Wall-E.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f3ece1; --paper2:#ece3d4; --ink:#181410; --ink-soft:#5b5246;
-    --line:#1814101a; --line2:#18141033;
-    --accent:#ff5a1f; --accent2:#0e7c7b; --gold:#e8a317;
-    --card:#fbf7ef;
-    --shadow:0 1px 0 #0000000d, 0 8px 24px -16px #18141066;
+    --bg:#070710; --bg2:#0b0c1a; --panel:#11122180; --panel-solid:#121327;
+    --txt:#eef0ff; --txt-dim:#9aa0c8; --line:#ffffff14; --line2:#ffffff2b;
+    --c-furniture:#ffb020; --c-lighting:#ffe04a; --c-kitchen:#9bff3c; --c-wallart:#ff3df0;
+    --c-audio:#18e6ff; --c-home:#b08bff; --c-outdoor:#22f5a8; --c-workshop:#ff7a2c;
+    --c-tech:#3b8cff; --c-fun:#ff5ab0; --c-all:#ffffff;
+    --glow:#18e6ff;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Hanken Grotesk',sans-serif;background:var(--paper);color:var(--ink);
-    overflow-x:hidden;line-height:1.5;
-    background-image:
-      radial-gradient(circle at 18% 12%, #ffffff80 0%, transparent 42%),
-      radial-gradient(circle at 84% 0%, #0e7c7b14 0%, transparent 38%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);
+    overflow-x:hidden;line-height:1.5;position:relative;
+    -webkit-font-smoothing:antialiased;
   }
-  .display{font-family:'Bricolage Grotesque',sans-serif;}
-  .mono{font-family:'Space Mono',monospace;}
-  a{color:inherit}
-  .wrap{max-width:975px;margin:0 auto;padding:0 16px}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--glow);color:#000}
 
-  /* ── top bar ── */
-  nav{position:sticky;top:0;z-index:60;background:#f3ece1f2;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:975px;margin:0 auto;padding:0 16px}
-  .brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.45rem;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
-  .brand .spark{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:9px;font-size:.9rem;transform:rotate(-6deg)}
-  .nav-links{display:flex;gap:22px;font-weight:600;font-size:.92rem;align-items:center}
-  .nav-links a{text-decoration:none;color:var(--ink-soft);transition:.18s}
-  .nav-links a:hover{color:var(--accent)}
-  @media(max-width:640px){.nav-links a.lbl{display:none}}
+  /* atmosphere: drifting neon blobs + blueprint grid + grain */
+  .bgfx{position:fixed;inset:0;z-index:-3;overflow:hidden;background:
+    radial-gradient(120% 90% at 50% -10%, #14163a 0%, var(--bg) 55%)}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;mix-blend-mode:screen;animation:drift 22s ease-in-out infinite}
+  .b1{width:46vw;height:46vw;background:#18e6ff;top:-10%;left:-8%}
+  .b2{width:40vw;height:40vw;background:#ff3df0;top:20%;right:-12%;animation-delay:-6s}
+  .b3{width:38vw;height:38vw;background:#7c4dff;bottom:-15%;left:25%;animation-delay:-12s}
+  .b4{width:30vw;height:30vw;background:#22f5a8;bottom:5%;right:18%;animation-delay:-3s;opacity:.4}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(6vw,4vh) scale(1.12)}66%{transform:translate(-4vw,-3vh) scale(.93)}}
+  .grid-tex{position:fixed;inset:0;z-index:-2;background-image:
+    linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);
+    background-size:48px 48px;mask:radial-gradient(120% 80% at 50% 0%,#000 30%,transparent 80%)}
+  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-  /* ── profile header ── */
-  header{padding:34px 0 8px}
-  .profile{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
-  .avatar{width:148px;height:148px;border-radius:50%;position:relative;justify-self:center}
-  .avatar .ring{position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(from 210deg,var(--accent),var(--gold),var(--accent2),var(--accent));padding:4px;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4px));mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4px))}
-  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--paper);background:var(--ink)}
-  .ph-main{min-width:0}
-  .ph-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:18px}
-  .handle{font-size:1.6rem;font-weight:500;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
-  .verified{color:var(--accent2);font-size:1.05rem}
-  .ph-btns{display:flex;gap:8px;flex-wrap:wrap}
-  .btn{font-weight:700;font-size:.9rem;border-radius:10px;padding:8px 16px;border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:.16s;white-space:nowrap}
-  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 16px -8px var(--accent)}
-  .btn-primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
-  .btn-ghost{background:var(--paper2);color:var(--ink);border-color:var(--line2)}
-  .btn-ghost:hover{background:#e3d8c6}
-  .btn-icon{background:var(--paper2);border-color:var(--line2);padding:8px 11px}
-  .stats{display:flex;gap:34px;margin-bottom:16px;font-size:1rem}
-  .stats b{font-weight:800}
-  .stats .s-lbl{color:var(--ink-soft)}
-  .bio{font-size:1rem;max-width:520px}
-  .bio .name{font-weight:800;font-family:'Bricolage Grotesque';font-size:1.05rem}
-  .bio .tagrow{margin:2px 0 6px;color:var(--ink-soft);font-weight:600}
-  .bio .link{color:var(--accent2);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-  .bio .link:hover{text-decoration:underline}
-  @media(max-width:640px){
-    .profile{grid-template-columns:1fr;gap:16px;text-align:center}
-    .avatar{width:104px;height:104px}
-    .ph-top{justify-content:center;gap:12px}
-    .handle{font-size:1.3rem}
-    .stats{justify-content:center;gap:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:6px 0}
-    .stats .s-lbl{display:block;font-size:.82rem}
-    .stats div{display:flex;flex-direction:column}
-    .bio{margin:0 auto}
+  /* cursor glow (desktop) */
+  .cursor{position:fixed;width:380px;height:380px;border-radius:50%;pointer-events:none;z-index:0;
+    background:radial-gradient(circle,#18e6ff33 0%,transparent 60%);transform:translate(-50%,-50%);
+    transition:opacity .3s;mix-blend-mode:screen;opacity:0}
+  @media(hover:hover){.cursor{opacity:1}}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 26px;position:relative;z-index:1}
+  .mono{font-family:'Space Mono',monospace}
+  .disp{font-family:'Unbounded',sans-serif}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:#07071099;border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1320px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:'Unbounded';font-weight:900;font-size:1.15rem;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+  .brand .core{width:13px;height:13px;border-radius:50%;background:var(--glow);box-shadow:0 0 14px var(--glow),0 0 28px var(--glow);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.45);opacity:.7}}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:.9rem;font-weight:500}
+  .nav-links a{color:var(--txt-dim);transition:.2s}
+  .nav-links a:hover{color:var(--txt)}
+  .nav-cta{padding:9px 18px;border-radius:100px;background:linear-gradient(100deg,#18e6ff,#7c4dff);color:#04040c!important;font-weight:700;box-shadow:0 0 22px #18e6ff66}
+  .nav-cta:hover{filter:brightness(1.1);box-shadow:0 0 30px #18e6ff99}
+  @media(max-width:760px){.nav-links a.lbl{display:none}}
+
+  /* hero */
+  header{padding:clamp(48px,9vw,110px) 0 40px}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono';font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--txt-dim);border:1px solid var(--line2);padding:7px 16px;border-radius:100px;background:#ffffff08;margin-bottom:26px}
+  .kicker .led{width:7px;height:7px;border-radius:50%;background:var(--c-outdoor);box-shadow:0 0 10px var(--c-outdoor)}
+  h1.hero{font-family:'Unbounded';font-weight:900;font-size:clamp(3.2rem,13vw,10rem);line-height:.86;letter-spacing:-2px;
+    background:linear-gradient(110deg,#fff 6%,#18e6ff 32%,#b08bff 58%,#ff3df0 80%,#ffb020 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    background-size:200% auto;animation:shimmer 8s linear infinite}
+  @keyframes shimmer{to{background-position:200% center}}
+  .hero-sub{margin-top:24px;max-width:640px;font-size:clamp(1.05rem,2vw,1.35rem);color:#cfd3f5;font-weight:300;line-height:1.55}
+  .hero-sub b{color:var(--txt);font-weight:600}
+  .cta-row{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.96rem;padding:15px 28px;border-radius:100px;border:1px solid var(--line2);cursor:pointer;transition:.18s;background:#ffffff0a;color:var(--txt)}
+  .btn:hover{transform:translateY(-2px);border-color:var(--line2);background:#ffffff16}
+  .btn-main{background:linear-gradient(100deg,#18e6ff,#7c4dff);color:#04040c;border:none;box-shadow:0 8px 30px -6px #18e6ff77}
+  .btn-main:hover{box-shadow:0 10px 38px -4px #18e6ffaa;filter:brightness(1.06)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}
+  .stat{padding:22px;border-radius:18px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(8px);position:relative;overflow:hidden}
+  .stat::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--ac,#18e6ff);box-shadow:0 0 14px var(--ac,#18e6ff)}
+  .stat .num{font-family:'Unbounded';font-weight:700;font-size:clamp(1.7rem,4vw,2.7rem);line-height:1;color:var(--ac,#18e6ff)}
+  .stat .lbl{font-family:'Space Mono';font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--txt-dim);margin-top:10px}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* section head */
+  .sec-head{display:flex;align-items:flex-end;gap:18px;margin:96px 0 26px;flex-wrap:wrap}
+  .sec-head h2{font-family:'Unbounded';font-weight:700;font-size:clamp(1.8rem,4.5vw,3rem);letter-spacing:-1px}
+  .sec-head .ix{font-family:'Space Mono';color:var(--c-audio);font-size:.85rem;letter-spacing:1px}
+  .sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent);min-width:40px}
+
+  /* filters */
+  .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:34px}
+  .fbtn{font-family:'Space Mono';font-size:.78rem;font-weight:700;letter-spacing:.5px;padding:9px 16px;border-radius:100px;border:1px solid var(--line2);background:#ffffff08;color:var(--txt-dim);cursor:pointer;transition:.18s;display:flex;align-items:center;gap:7px}
+  .fbtn .d{width:8px;height:8px;border-radius:50%;background:var(--fc,#fff)}
+  .fbtn:hover{color:var(--txt);border-color:var(--fc,#fff)}
+  .fbtn.active{color:#05050f;background:var(--fc,#fff);border-color:var(--fc,#fff);box-shadow:0 0 20px -2px var(--fc,#fff)}
+
+  /* BENTO grid */
+  #grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:248px;grid-auto-flow:dense;gap:16px}
+  .card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;background:#0e0f20;
+    border:1px solid var(--line);opacity:0;transform:translateY(26px) scale(.98);
+    transition:opacity .6s ease,transform .6s ease,box-shadow .3s,border-color .3s}
+  .card.in{opacity:1;transform:none}
+  .card.z-xl{grid-column:span 2;grid-row:span 2}
+  .card.z-w{grid-column:span 2}
+  .card.z-t{grid-row:span 2}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;filter:saturate(1.05)}
+  .card:hover{border-color:var(--cc);box-shadow:0 0 0 1px var(--cc),0 18px 50px -18px var(--cc),0 0 60px -22px var(--cc)}
+  .card:hover img{transform:scale(1.07)}
+  .card .scrim{position:absolute;inset:0;background:linear-gradient(180deg,#05050f00 38%,#05050fcc 86%,#05050fee);z-index:1}
+  .card .topline{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-start;z-index:2;gap:8px}
+  .chip{font-family:'Space Mono';font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px;color:#05050f;background:var(--cc);box-shadow:0 0 16px -3px var(--cc)}
+  .badges{display:flex;gap:6px;align-items:center}
+  .bdg{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;background:#0a0a18cc;border:1px solid var(--line2);color:var(--txt);backdrop-filter:blur(4px)}
+  .bdg.play{color:#fff;background:var(--cc);border:none;box-shadow:0 0 16px -2px var(--cc);padding-left:2px}
+  .pin{font-family:'Space Mono';font-size:.62rem;font-weight:700;color:#05050f;background:var(--c-lighting);padding:4px 9px;border-radius:100px;box-shadow:0 0 16px -2px var(--c-lighting)}
+  .card .info{position:absolute;left:14px;right:14px;bottom:13px;z-index:2}
+  .card .info h3{font-family:'Unbounded';font-weight:600;font-size:clamp(.92rem,1.5vw,1.18rem);line-height:1.1;letter-spacing:-.3px;text-shadow:0 2px 14px #000a}
+  .card.z-xl .info h3{font-size:clamp(1.2rem,2.4vw,1.7rem)}
+  .card .info .meta{margin-top:6px;font-family:'Space Mono';font-size:.7rem;color:#c9cdf0;display:flex;gap:12px;align-items:center}
+  .card .views{color:var(--cc);font-weight:700}
+  .card.hide{display:none}
+
+  @media(max-width:1100px){#grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:230px}}
+  @media(max-width:760px){
+    #grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;gap:11px}
+    .card.z-xl{grid-column:span 2;grid-row:span 2}
+    .card.z-w{grid-column:span 2;grid-row:span 1}
+    .card.z-t{grid-column:span 1;grid-row:span 2}
+  }
+  @media(max-width:480px){
+    #grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .card.z-w{grid-column:span 2}
+    .card.z-xl{grid-column:span 2;grid-row:span 2}
   }
 
-  /* ── story highlights ── */
-  .highlights{display:flex;gap:20px;overflow-x:auto;padding:30px 4px 14px;margin-top:14px;scrollbar-width:none}
-  .highlights::-webkit-scrollbar{display:none}
-  .hl{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;background:none;border:none;font:inherit}
-  .hl .bubble{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;background:var(--card);border:2px solid var(--line2);transition:.18s}
-  .hl .lbl{font-size:.78rem;font-weight:600;color:var(--ink-soft)}
-  .hl:hover .bubble{transform:translateY(-3px)}
-  .hl.active .bubble{border-color:var(--accent);box-shadow:0 0 0 3px #ff5a1f22;background:#fff}
-  .hl.active .lbl{color:var(--ink)}
-  @media(max-width:640px){.hl .bubble{width:62px;height:62px;font-size:1.4rem}}
+  /* about */
+  .about{margin:110px 0 20px;border-radius:28px;padding:clamp(30px,5vw,64px);position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#12132b,#0c0d1c);border:1px solid var(--line)}
+  .about::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(60% 80% at 100% 0%,#ff3df022,transparent 60%),
+    radial-gradient(60% 80% at 0% 100%,#18e6ff22,transparent 60%)}
+  .about .ic{font-size:2.4rem;margin-bottom:18px;position:relative}
+  .about h2{font-family:'Unbounded';font-weight:700;font-size:clamp(1.6rem,4vw,2.6rem);margin-bottom:18px;position:relative;letter-spacing:-1px}
+  .about p{max-width:720px;font-size:1.08rem;line-height:1.7;color:#cfd3f5;font-weight:300;position:relative}
+  .about p+p{margin-top:16px}
+  .about .hl{color:var(--c-audio);font-weight:600}
+  .about .hl2{color:var(--c-fun);font-weight:600}
 
-  /* ── tabs ── */
-  .tabs{display:flex;justify-content:center;gap:54px;border-top:1px solid var(--line);margin-top:6px}
-  .tab{padding:16px 0;font-family:'Space Mono';font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);border-top:2px solid transparent;margin-top:-1px;display:flex;align-items:center;gap:8px}
-  .tab.on{color:var(--ink);border-top-color:var(--ink)}
-  .tab .ic{font-size:.95rem}
+  /* footer */
+  footer{padding:70px 0 60px;text-align:center}
+  .fsoc{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+  .fine{font-family:'Space Mono';font-size:.74rem;color:var(--txt-dim);letter-spacing:.5px}
 
-  /* ── grid ── */
-  #grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:6px 0 10px}
-  @media(min-width:700px){#grid{gap:18px}}
-  .post{position:relative;aspect-ratio:1;overflow:hidden;cursor:pointer;background:var(--ink);border-radius:4px}
-  @media(min-width:700px){.post{border-radius:10px;box-shadow:var(--shadow)}}
-  .post img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-  .post:hover img{transform:scale(1.06)}
-  .post .multi{position:absolute;top:8px;right:8px;color:#fff;filter:drop-shadow(0 1px 2px #0008);font-size:1rem;z-index:2}
-  .post .vbadge{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2}
-  .post .vbadge span{width:46px;height:46px;border-radius:50%;background:#181410b3;color:#fff;display:grid;place-items:center;font-size:1.05rem;backdrop-filter:blur(2px);box-shadow:0 4px 14px #0007;padding-left:3px}
-  .post .pin{position:absolute;top:8px;left:8px;background:var(--gold);color:#1c1408;font-family:'Space Mono';font-weight:700;font-size:.62rem;padding:2px 7px;border-radius:20px;letter-spacing:.5px;z-index:2}
-  .post .ov{position:absolute;inset:0;background:linear-gradient(180deg,#0000 35%,#181410cc);opacity:0;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;transition:.22s;color:#fff}
-  .post:hover .ov{opacity:1}
-  .post .ov h3{font-family:'Bricolage Grotesque';font-weight:700;font-size:.98rem;line-height:1.12}
-  .post .ov .row{margin-top:5px;font-family:'Space Mono';font-size:.7rem;display:flex;gap:12px;opacity:.92}
-  .post.hide{display:none}
-  .empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink-soft);font-family:'Space Mono'}
-
-  /* ── about strip ── */
-  .about{margin:46px 0 10px;background:var(--ink);color:var(--paper);border-radius:18px;padding:clamp(26px,5vw,52px);position:relative;overflow:hidden}
-  .about::after{content:'🛠️';position:absolute;right:-14px;bottom:-34px;font-size:11rem;opacity:.07;transform:rotate(-12deg)}
-  .about h2{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(1.5rem,4vw,2.3rem);margin-bottom:14px;letter-spacing:-.5px}
-  .about p{max-width:660px;font-size:1.05rem;line-height:1.65;color:#f3ece1cc}
-  .about p+p{margin-top:14px}
-  .about .hl-w{color:var(--gold);font-weight:700}
-
-  /* ── footer ── */
-  footer{padding:40px 0 56px;text-align:center;color:var(--ink-soft)}
-  .fsocial{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
-  .fine{font-family:'Space Mono';font-size:.74rem;letter-spacing:.4px}
-
-  /* ── modal / post view ── */
-  .modal{position:fixed;inset:0;z-index:120;background:#100d0ad9;backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:18px}
+  /* modal */
+  .modal{position:fixed;inset:0;z-index:120;background:#04040bd9;backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
   .modal.open{display:flex}
-  .mclose{position:fixed;top:16px;right:20px;font-size:2rem;color:#fff;background:none;border:none;cursor:pointer;line-height:1;z-index:130}
-  .sheet{background:var(--card);width:min(940px,100%);max-height:90vh;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;box-shadow:0 30px 80px -20px #000a;animation:pop .25s ease}
-  @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
-  .stage{position:relative;background:#100d0a;display:flex;align-items:center;justify-content:center;min-height:300px}
-  .stage img{max-width:100%;max-height:90vh;object-fit:contain;display:block}
+  .mclose{position:fixed;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:#0a0a18aa;color:#fff;font-size:1.4rem;cursor:pointer;z-index:130;display:grid;place-items:center;backdrop-filter:blur(6px)}
+  .mclose:hover{background:var(--c-fun);color:#04040b;border-color:transparent}
+  .sheet{width:min(1080px,100%);max-height:92vh;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1.4fr .9fr;
+    background:var(--panel-solid);border:1px solid var(--line2);box-shadow:0 0 80px -10px var(--cc,#18e6ff);animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pop{from{opacity:0;transform:scale(.96) translateY(14px)}to{opacity:1;transform:none}}
+  .stage{position:relative;background:#000;display:flex;align-items:center;justify-content:center;min-height:340px}
+  .stage img{max-width:100%;max-height:92vh;object-fit:contain;display:block}
   .stage iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
   .playwrap{position:absolute;inset:0;display:grid;place-items:center;cursor:pointer;z-index:6}
-  .playwrap span{width:76px;height:76px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:1.7rem;padding-left:5px;box-shadow:0 10px 30px #000a;transition:.16s}
-  .playwrap:hover span{transform:scale(1.08)}
-  .arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:#ffffffdd;color:#181410;font-size:1.1rem;cursor:pointer;display:grid;place-items:center;transition:.15s;z-index:5}
-  .arrow:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
-  .arrow.prev{left:12px}.arrow.next{right:12px}
-  .dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5}
-  .dots i{width:7px;height:7px;border-radius:50%;background:#ffffff66;transition:.2s}
-  .dots i.on{background:#fff;transform:scale(1.25)}
-  .side{display:flex;flex-direction:column;min-width:0}
-  .side-top{display:flex;align-items:center;gap:11px;padding:16px 18px;border-bottom:1px solid var(--line)}
-  .side-top img{width:38px;height:38px;border-radius:50%;object-fit:cover}
-  .side-top .h{font-weight:800;font-size:.92rem}
-  .side-top .h small{display:block;color:var(--ink-soft);font-weight:600;font-size:.78rem}
-  .side-body{padding:18px;overflow-y:auto}
-  .chip{display:inline-block;background:var(--paper2);border:1px solid var(--line2);font-family:'Space Mono';font-size:.68rem;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:20px;margin-bottom:12px}
-  .side-body h2{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.5rem;line-height:1.08;letter-spacing:-.5px;margin-bottom:10px}
-  .side-body p{color:var(--ink-soft);font-size:.98rem;line-height:1.55}
-  .side-meta{margin-top:16px;display:flex;gap:16px;font-family:'Space Mono';font-size:.78rem;color:var(--ink-soft);flex-wrap:wrap}
-  .side-cta{padding:14px 18px;border-top:1px solid var(--line);margin-top:auto;display:flex;flex-direction:column;gap:8px}
-  @media(max-width:760px){
-    .sheet{grid-template-columns:1fr;max-height:92vh;overflow-y:auto}
-    .stage{min-height:auto}
-    .stage img{max-height:56vh}
+  .playwrap span{width:86px;height:86px;border-radius:50%;background:var(--cc,#18e6ff);color:#04040b;display:grid;place-items:center;font-size:1.9rem;padding-left:6px;box-shadow:0 0 40px -4px var(--cc,#18e6ff);transition:.18s}
+  .playwrap:hover span{transform:scale(1.1)}
+  .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:#0a0a18bb;color:#fff;font-size:1.3rem;cursor:pointer;display:grid;place-items:center;transition:.16s;z-index:5;backdrop-filter:blur(6px)}
+  .arrow:hover{background:var(--cc);color:#04040b;border-color:transparent}
+  .arrow.prev{left:14px}.arrow.next{right:14px}
+  .dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}
+  .dots i{width:8px;height:8px;border-radius:50%;background:#ffffff44;transition:.2s;cursor:pointer}
+  .dots i.on{background:var(--cc);box-shadow:0 0 10px var(--cc);transform:scale(1.3)}
+  .side{display:flex;flex-direction:column;padding:30px;overflow-y:auto}
+  .side .chip{align-self:flex-start;margin-bottom:16px}
+  .side h2{font-family:'Unbounded';font-weight:700;font-size:1.7rem;line-height:1.08;letter-spacing:-.5px;margin-bottom:14px}
+  .side p{color:var(--txt-dim);font-size:1rem;line-height:1.6;font-weight:300}
+  .side .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:14px;font-family:'Space Mono';font-size:.78rem;color:var(--txt-dim)}
+  .side .meta b{color:var(--cc)}
+  .side .cta{margin-top:auto;padding-top:22px;display:flex;flex-direction:column;gap:10px}
+  @media(max-width:820px){
+    .sheet{grid-template-columns:1fr;max-height:94vh;overflow-y:auto}
+    .stage{min-height:auto}.stage img{max-height:54vh}
+    .side{padding:22px}
   }
 </style>
 </head>
 <body>
+<div class="bgfx"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
+<div class="grid-tex"></div>
+<div class="grain"></div>
+<div class="cursor" id="cursor"></div>
 
 <nav><div class="nav-in">
-  <div class="brand"><span class="spark">✦</span>roeyleon</div>
+  <div class="brand"><span class="core"></span>ROEY&nbsp;LEON</div>
   <div class="nav-links">
-    <a href="#grid" class="lbl">Builds</a>
+    <a href="#work" class="lbl">Builds</a>
     <a href="#about" class="lbl">About</a>
-    <a href="https://www.instructables.com/member/RoeyLeon/" target="_blank" rel="noopener">Instructables</a>
-    <a href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener" class="btn btn-primary" style="padding:6px 14px">Follow</a>
+    <a href="https://www.instructables.com/member/RoeyLeon/" target="_blank" rel="noopener" class="lbl">Instructables</a>
+    <a href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener" class="nav-cta">Follow</a>
   </div>
 </div></nav>
 
-<div class="wrap">
-  <header>
-    <div class="profile">
-      <div class="avatar">
-        <div class="ring"></div>
-        <img id="avatarImg" alt="Roey Leon workshop" loading="eager">
-      </div>
-      <div class="ph-main">
-        <div class="ph-top">
-          <div class="handle">roeyleon <span class="verified" title="Maker since 2011">✔</span></div>
-          <div class="ph-btns">
-            <a href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener" class="btn btn-primary">Follow</a>
-            <a href="mailto:roeyleon@gmail.com" class="btn btn-ghost">Message</a>
-            <a href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener" class="btn btn-icon" title="All projects">⌗</a>
-          </div>
-        </div>
-        <div class="stats">
-          <div><b id="countNum">0</b> <span class="s-lbl">builds</span></div>
-          <div><b>648K</b> <span class="s-lbl">reach</span></div>
-          <div><b>381</b> <span class="s-lbl">followers</span></div>
-        </div>
-        <div class="bio">
-          <div class="name">Roey Leon</div>
-          <div class="tagrow">Maker · Builder · Fixer 🛠️ · Tel Aviv 📍</div>
-          I build stuff with my bare hands. It always starts with a crazy idea on a small piece of paper — other people buy the product, I'd rather make it.<br>
-          <a class="link" href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener">↗ 200+ full build guides on Instructables</a>
-        </div>
-      </div>
-    </div>
+<header><div class="wrap">
+  <span class="kicker"><span class="led"></span>EST. TEL AVIV · 200+ BUILDS · MADE BY HAND</span>
+  <h1 class="hero">ROEY<br>LEON</h1>
+  <p class="hero-sub">Maker · Builder · Fixer. It always starts with a crazy idea on a small piece of paper. Most people buy the product — <b>I'd rather build it.</b> Woodwork, electronics, furniture, lighting, and the occasional Wall-E.</p>
+  <div class="cta-row">
+    <a href="#work" class="btn btn-main">Explore the builds ↓</a>
+    <a href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener" class="btn">Full guides ↗</a>
+  </div>
+  <div class="stats">
+    <div class="stat" style="--ac:var(--c-audio)"><div class="num" data-to="200" data-suf="+">0</div><div class="lbl">Builds made</div></div>
+    <div class="stat" style="--ac:var(--c-fun)"><div class="num" data-to="648" data-suf="K">0</div><div class="lbl">Total reach</div></div>
+    <div class="stat" style="--ac:var(--c-outdoor)"><div class="num" data-to="381" data-suf="">0</div><div class="lbl">Followers</div></div>
+    <div class="stat" style="--ac:var(--c-furniture)"><div class="num" data-to="14" data-suf="">0</div><div class="lbl">Years making</div></div>
+  </div>
+</div></header>
 
-    <div class="highlights" id="highlights"></div>
-  </header>
-
-  <div class="tabs"><div class="tab on"><span class="ic">⊞</span> Builds</div></div>
-
+<section id="work" class="wrap">
+  <div class="sec-head"><h2>The Build Log</h2><span class="ix" id="ix"></span><div class="rule"></div></div>
+  <div class="filters" id="filters"></div>
   <div id="grid"></div>
+</section>
 
-  <section id="about"><div class="about">
-    <h2>Hey, I'm Roey 👋</h2>
-    <p>From Tel Aviv. In my free time I love building things from scratch. It always starts with a crazy idea — then I realize it's <span class="hl-w">too dangerous, impossible, or just way too big</span> — so I sketch on a small piece of paper what I actually <i>can</i> pull off.</p>
-    <p>Ideas come from design magazines, friends, and the internet. I hoard the cool ones and try to make them by hand. Most people would just buy the thing — but <span class="hl-w">the satisfaction of building it yourself is unbeatable.</span> That's why I'm here.</p>
-  </div></section>
+<section id="about" class="wrap"><div class="about">
+  <div class="ic">🛠️</div>
+  <h2>Hey, I'm Roey 👋</h2>
+  <p>From Tel Aviv. In my free time I build things from scratch. It always starts with a crazy idea — then I realize it's <span class="hl">too dangerous, impossible, or just way too big</span> — so I sketch on a small piece of paper what I actually <i>can</i> pull off.</p>
+  <p>Ideas come from design magazines, friends, and the internet. I hoard the good ones and make them by hand. Most people would just buy the thing — but <span class="hl2">the satisfaction of building it yourself is unbeatable.</span> That's why I'm here.</p>
+</div></section>
 
-  <footer>
-    <div class="fsocial">
-      <a class="btn btn-ghost" href="https://www.instructables.com/member/RoeyLeon/" target="_blank" rel="noopener">Instructables</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn btn-ghost" href="mailto:roeyleon@gmail.com">Email</a>
-    </div>
-    <p class="fine">© 2026 Roey Leon · Built by hand · Tel Aviv, IL</p>
-  </footer>
-</div>
+<footer><div class="wrap">
+  <div class="fsoc">
+    <a class="btn" href="https://www.instructables.com/member/RoeyLeon/" target="_blank" rel="noopener">Instructables</a>
+    <a class="btn" href="https://www.instagram.com/roeyleon/" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn" href="mailto:roeyleon@gmail.com">Email</a>
+  </div>
+  <p class="fine">© 2026 ROEY LEON · BUILT BY HAND · TEL AVIV, IL</p>
+</div></footer>
 
-<!-- modal -->
 <div class="modal" id="modal">
-  <button class="mclose" id="mclose" aria-label="Close">×</button>
+  <button class="mclose" id="mclose" aria-label="Close">✕</button>
   <div class="sheet" id="sheet">
     <div class="stage" id="stage">
       <img id="mimg" alt="">
@@ -238,59 +259,42 @@
       <div class="dots" id="mdots"></div>
     </div>
     <div class="side">
-      <div class="side-top">
-        <img id="sideAvatar" alt="">
-        <div class="h">roeyleon <small>Tel Aviv, IL</small></div>
-      </div>
-      <div class="side-body">
-        <span class="chip" id="mchip"></span>
-        <h2 id="mtitle"></h2>
-        <p id="mcap"></p>
-        <div class="side-meta" id="mmeta"></div>
-      </div>
-      <div class="side-cta" id="mcta"></div>
+      <span class="chip" id="mchip"></span>
+      <h2 id="mtitle"></h2>
+      <p id="mcap"></p>
+      <div class="meta" id="mmeta"></div>
+      <div class="cta" id="mcta"></div>
     </div>
   </div>
 </div>
 
 <script>
 /* ============================================================
-   IMAGES
-   Primary source = compressed files in  images/<slug>.jpg
-   (created by running Optimize-Images.bat once).
-   If that file isn't there yet, it falls back automatically
-   to the original in  pictures for site/.
-
-   VIDEOS  (add later)
-   To attach a YouTube video to a project, add  yt:"<link>"
-   to that project below. Accepts any of:
-     yt:"https://youtu.be/ABCD1234"
-     yt:"https://www.youtube.com/watch?v=ABCD1234"
-     yt:"ABCD1234"
-   A ▶ icon then appears on the tile, and a play button in the
-   pop-up plays the video. (Or just send Roey-style: "Concrete
-   Clock -> <link>" and it gets wired in.)
+   IMAGES: primary = images/<slug>.jpg  (made by Optimize-Images.bat)
+   fallback = original in  pictures for site/  (auto, on error)
+   VIDEO: add  yt:"<youtube link or id>"  to any project below.
+          A ▶ icon appears on its card; play button in the popup
+          plays it. Or just send "Project name -> <link>".
    ============================================================ */
 const NEWDIR="images/", OLDDIR="pictures for site/";
-const NEW=(s,k)=> NEWDIR + s + (k?("-"+(k+1)):"") + ".jpg";
-const OLD=f=> OLDDIR + encodeURIComponent(f);
-function setImg(el, slug, files, k){
-  el.onerror=function(){ el.onerror=null; el.src=OLD(files[k]); };
-  el.src=NEW(slug,k);
-}
-function ytId(v){
-  if(!v) return "";
-  let m=v.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{6,})/);
-  return m?m[1]:v.trim();
-}
+const NEW=(s,k)=> NEWDIR+s+(k?("-"+(k+1)):"")+".jpg";
+const OLD=f=> OLDDIR+encodeURIComponent(f);
+function setImg(el,slug,files,k){el.onerror=function(){el.onerror=null;el.src=OLD(files[k]);};el.src=NEW(slug,k);}
+function ytId(v){if(!v)return"";const m=v.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{6,})/);return m?m[1]:v.trim();}
 
+/* category -> neon color + emoji */
 const CATS=[
-  ["All","✦"],["Furniture","🪑"],["Lighting","💡"],["Kitchen","🍽️"],
-  ["Wall Art","🖼️"],["Audio","🔊"],["Home","🏠"],["Outdoor","🌿"],
-  ["Workshop","🛠️"],["Tech","💻"],["Fun","🎉"]
+  ["All","var(--c-all)","✦"],["Furniture","var(--c-furniture)","🪑"],["Lighting","var(--c-lighting)","💡"],
+  ["Kitchen","var(--c-kitchen)","🍽"],["Wall Art","var(--c-wallart)","🖼"],["Audio","var(--c-audio)","🔊"],
+  ["Home","var(--c-home)","🏠"],["Outdoor","var(--c-outdoor)","🌿"],["Workshop","var(--c-workshop)","🛠"],
+  ["Tech","var(--c-tech)","💻"],["Fun","var(--c-fun)","🎉"]
 ];
+const COLOR={Furniture:"var(--c-furniture)",Lighting:"var(--c-lighting)",Kitchen:"var(--c-kitchen)","Wall Art":"var(--c-wallart)",Audio:"var(--c-audio)",Home:"var(--c-home)",Outdoor:"var(--c-outdoor)",Workshop:"var(--c-workshop)",Tech:"var(--c-tech)",Fun:"var(--c-fun)"};
+/* bento sizes by slug */
+const SIZE={"garden-speakers":"z-xl","plexiglass-pc":"z-xl","living-wall":"z-xl","dresser":"z-xl","cube-art":"z-xl","mm-machine":"z-xl","learning-tower":"z-xl","epoxy-clock":"z-xl",
+  "tv-wall":"z-w","tool-wall":"z-w","workshop-tour":"z-w","cutting-boards":"z-w","bedroom":"z-w","living-room-art":"z-w","gym-bars":"z-w",
+  "floor-lamp":"z-t","mezuzah":"z-t","ceiling-lamp":"z-t","scooter":"z-t","wood-figures":"z-t"};
 
-/* t=title  c=category  s=slug  f=original files  v=views  u=guide url  p=pin  cap=caption  yt=video */
 const P=[
   {t:"Garden Speakers", c:"Audio", s:"garden-speakers", v:"78K", u:"https://www.instructables.com/Garden-Speakers/", f:["garden speakers (2).jpg","garden speakers (3).jpg","graden speakers.png"], cap:"Outdoor speakers built to survive the weather and still sound huge."},
   {t:"My Little Boombox", c:"Audio", s:"mini-boombox", v:"74K", u:"https://www.instructables.com/My-Awesome-little-Boombox/", f:["mini boombox _v2.png","Mini BoomBox (2).jpg"], cap:"Tiny enclosure, surprisingly big sound."},
@@ -315,7 +319,6 @@ const P=[
   {t:"Wood Planters", c:"Outdoor", s:"wood-planter", v:"2.5K", u:"https://www.instructables.com/Building-a-Planter/", f:["Planter.jpg","planter_v2.png","planter_v3.jpg","planter.png","wood planters -mini.jpg","Planter_!.jpg"], cap:"Simple wooden planters in a few sizes."},
   {t:"iPad Mini Inside a Book", c:"Fun", s:"ipad-book", v:"1.1K", u:"https://www.instructables.com/iPad-Mini-inside-a-book/", f:["iPad Book Present for Mom.png"], cap:"A hollowed book that hides an iPad mini — a gift for Mom."},
   {t:"Dining Room Hive Shelving", c:"Furniture", s:"hive-shelving", v:"884", u:"https://www.instructables.com/Dining-Room-Hive-Shelving/", f:["מדפים לפינת אוכל.jpg"], cap:"Honeycomb shelves for the dining corner."},
-
   {t:"End-Grain Cutting Boards", c:"Kitchen", s:"cutting-boards", f:["cutting boards (1).jpg","cutting boards (9).jpg","cutting boards (17).jpg","cutting boards (24).jpg","serving board (2).jpg","קרשי חיתוך (7).jpg","קרש חיתוך_2 (5).jpg","קרשי יחתוך נוספים (5).jpg"], cap:"Checkerboard and brick-pattern boards in mixed hardwoods."},
   {t:"Epoxy & Olive-Wood Tray", c:"Kitchen", s:"epoxy-tray", f:["epoxy serving tray (1).jpg"], cap:"A serving tray pouring olive wood into clear epoxy."},
   {t:"Wooden Salt & Pepper Mills", c:"Kitchen", s:"salt-pepper", f:["salt and pepper from wood.jpg"], cap:"Turned mills with real grinders inside."},
@@ -379,114 +382,109 @@ const P=[
   {t:"Car Roof Rack", c:"Outdoor", s:"roof-rack", f:["גגון לרכב (4).jpg"], cap:"A custom roof rack for extra gear."}
 ];
 
-/* ── story highlights ── */
-const hlWrap=document.getElementById("highlights");
+document.getElementById("ix").textContent="[ "+P.length+" BUILDS ]";
+
+/* filters */
+const fwrap=document.getElementById("filters");
 let activeCat="All";
-CATS.forEach(([name,emoji])=>{
+CATS.forEach(([name,color,emoji])=>{
   const b=document.createElement("button");
-  b.className="hl"+(name==="All"?" active":"");
-  b.innerHTML=`<span class="bubble">${emoji}</span><span class="lbl">${name}</span>`;
-  b.onclick=()=>{activeCat=name;document.querySelectorAll(".hl").forEach(x=>x.classList.remove("active"));b.classList.add("active");render();};
-  hlWrap.appendChild(b);
+  b.className="fbtn"+(name==="All"?" active":"");
+  b.style.setProperty("--fc",color);
+  b.innerHTML=`<span class="d"></span>${name}`;
+  b.onclick=()=>{activeCat=name;document.querySelectorAll(".fbtn").forEach(x=>x.classList.remove("active"));b.classList.add("active");render();};
+  fwrap.appendChild(b);
 });
 
-/* ── avatars ── */
-setImg(document.getElementById("avatarImg"),"workshop-tour",["panoramic picture of workshop.jpg"],0);
-setImg(document.getElementById("sideAvatar"),"workshop-tour",["panoramic picture of workshop.jpg"],0);
-document.getElementById("countNum").textContent="200+";
+/* reveal observer */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.08});
 
-/* ── render grid ── */
+/* render bento */
 const grid=document.getElementById("grid");
 function render(){
   grid.innerHTML="";
   const list=P.filter(p=>activeCat==="All"||p.c===activeCat);
-  if(!list.length){grid.innerHTML='<div class="empty">No builds here yet.</div>';return;}
-  list.forEach(p=>{
+  list.forEach((p,i)=>{
     const idx=P.indexOf(p);
-    const el=document.createElement("div");
-    el.className="post";
+    const col=COLOR[p.c]||"#fff";
+    const el=document.createElement("article");
+    el.className="card "+(SIZE[p.s]||"");
+    el.style.setProperty("--cc",col);
+    el.style.transitionDelay=((i%14)*45)+"ms";
     el.innerHTML=`
-      ${p.p?`<span class="pin">🏆 ${p.p}</span>`:``}
-      ${p.f.length>1?`<span class="multi">❑</span>`:``}
-      ${p.yt?`<span class="vbadge"><span>▶</span></span>`:``}
       <img alt="${p.t}" loading="lazy">
-      <div class="ov">
-        <h3>${p.t}</h3>
-        <div class="row">
-          <span>${p.f.length>1?p.f.length+" photos":"1 photo"}</span>
-          ${p.v?`<span>👁 ${p.v}</span>`:``}
+      <div class="scrim"></div>
+      <div class="topline">
+        <span class="chip">${p.c}</span>
+        <div class="badges">
+          ${p.p?`<span class="pin">🏆 ${p.p}</span>`:``}
+          ${p.f.length>1?`<span class="bdg">▦</span>`:``}
+          ${p.yt?`<span class="bdg play">▶</span>`:``}
         </div>
+      </div>
+      <div class="info">
+        <h3>${p.t}</h3>
+        <div class="meta"><span>${p.f.length>1?p.f.length+" photos":"1 photo"}</span>${p.v?`<span class="views">▲ ${p.v}</span>`:``}</div>
       </div>`;
     setImg(el.querySelector("img"),p.s,p.f,0);
     el.onclick=()=>openModal(idx);
     grid.appendChild(el);
+    io.observe(el);
   });
 }
 render();
 
-/* ── modal / carousel / video ── */
-const modal=document.getElementById("modal"), stage=document.getElementById("stage"),
-      mimg=document.getElementById("mimg"), playwrap=document.getElementById("playwrap"),
-      mdots=document.getElementById("mdots"), mprev=document.getElementById("mprev"),
-      mnext=document.getElementById("mnext");
-let cur=null, gi=0;
+/* stat counters */
+function runCounters(){
+  document.querySelectorAll(".num").forEach(n=>{
+    const to=+n.dataset.to, suf=n.dataset.suf||""; let t0=null;
+    function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/1300,1);const e=1-Math.pow(1-p,3);
+      n.textContent=Math.round(to*e)+suf;if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  });
+}
+window.addEventListener("load",runCounters);
 
-function stopVideo(){
-  const fr=stage.querySelector("iframe"); if(fr) fr.remove();
-  mimg.style.display=""; 
-}
-function showSlide(){
-  stopVideo();
-  setImg(mimg,cur.s,cur.f,gi);
-  [...mdots.children].forEach((d,k)=>d.classList.toggle("on",k===gi));
-  playwrap.style.display = cur.yt ? "grid" : "none";
-}
+/* cursor glow */
+const cur=document.getElementById("cursor");
+window.addEventListener("mousemove",e=>{cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px";});
+
+/* modal */
+const modal=document.getElementById("modal"),sheet=document.getElementById("sheet"),stage=document.getElementById("stage"),
+      mimg=document.getElementById("mimg"),playwrap=document.getElementById("playwrap"),
+      mdots=document.getElementById("mdots"),mprev=document.getElementById("mprev"),mnext=document.getElementById("mnext");
+let cur2=null,gi=0;
+function stopVideo(){const fr=stage.querySelector("iframe");if(fr)fr.remove();mimg.style.display="";}
+function showSlide(){stopVideo();setImg(mimg,cur2.s,cur2.f,gi);[...mdots.children].forEach((d,k)=>d.classList.toggle("on",k===gi));playwrap.style.display=cur2.yt?"grid":"none";const m=cur2.f.length>1;mprev.style.display=mnext.style.display=m?"grid":"none";}
 function openModal(i){
-  cur=P[i]; gi=0;
-  document.getElementById("mchip").textContent=cur.c;
-  document.getElementById("mtitle").textContent=cur.t;
-  document.getElementById("mcap").textContent=cur.cap||"";
-  document.getElementById("mmeta").innerHTML =
-    `<span>📷 ${cur.f.length} photo${cur.f.length>1?"s":""}</span>`
-    + (cur.v?`<span>👁 ${cur.v} views</span>`:``)
-    + (cur.yt?`<span>🎬 video</span>`:``)
-    + (cur.p?`<span>🏆 ${cur.p}</span>`:``);
-  document.getElementById("mcta").innerHTML =
-    (cur.yt?`<a class="btn btn-ghost" style="justify-content:center" href="https://youtu.be/${ytId(cur.yt)}" target="_blank" rel="noopener">▶ Watch on YouTube</a>`:``)
-    + (cur.u
-        ? `<a class="btn btn-primary" style="justify-content:center" href="${cur.u}" target="_blank" rel="noopener">↗ View full build guide</a>`
-        : `<a class="btn btn-ghost" style="justify-content:center" href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener">↗ More builds on Instructables</a>`);
-  const multi=cur.f.length>1;
-  mprev.style.display=mnext.style.display=multi?"grid":"none";
-  mdots.innerHTML=multi?cur.f.map((_,k)=>`<i class="${k===0?"on":""}"></i>`).join(""):"";
+  cur2=P[i];gi=0;
+  const col=COLOR[cur2.c]||"#18e6ff";
+  sheet.style.setProperty("--cc",col);
+  document.getElementById("mchip").style.background=col;
+  document.getElementById("mchip").textContent=cur2.c;
+  document.getElementById("mtitle").textContent=cur2.t;
+  document.getElementById("mcap").textContent=cur2.cap||"";
+  document.getElementById("mmeta").innerHTML=
+    `<span><b>${cur2.f.length}</b> photo${cur2.f.length>1?"s":""}</span>`
+    +(cur2.v?`<span>reach <b>${cur2.v}</b></span>`:``)
+    +(cur2.yt?`<span><b>🎬</b> video</span>`:``)
+    +(cur2.p?`<span><b>🏆</b> ${cur2.p}</span>`:``);
+  document.getElementById("mcta").innerHTML=
+    (cur2.yt?`<a class="btn" style="justify-content:center" href="https://youtu.be/${ytId(cur2.yt)}" target="_blank" rel="noopener">▶ Watch on YouTube</a>`:``)
+    +(cur2.u?`<a class="btn btn-main" style="justify-content:center" href="${cur2.u}" target="_blank" rel="noopener">↗ Full build guide</a>`
+            :`<a class="btn" style="justify-content:center" href="https://www.instructables.com/member/RoeyLeon/instructables/" target="_blank" rel="noopener">↗ More builds</a>`);
+  mdots.innerHTML=cur2.f.length>1?cur2.f.map((_,k)=>`<i class="${k===0?"on":""}"></i>`).join(""):"";
+  [...mdots.children].forEach((d,k)=>d.onclick=ev=>{ev.stopPropagation();gi=k;showSlide();});
   showSlide();
-  modal.classList.add("open");
-  document.body.style.overflow="hidden";
+  modal.classList.add("open");document.body.style.overflow="hidden";
 }
-playwrap.onclick=e=>{
-  e.stopPropagation();
-  if(!cur.yt) return;
-  const fr=document.createElement("iframe");
-  fr.src=`https://www.youtube.com/embed/${ytId(cur.yt)}?autoplay=1&rel=0`;
-  fr.allow="autoplay; encrypted-media; fullscreen";
-  fr.allowFullscreen=true;
-  mimg.style.display="none"; playwrap.style.display="none";
-  mprev.style.display=mnext.style.display="none";
-  stage.appendChild(fr);
-};
-mnext.onclick=e=>{e.stopPropagation();gi=(gi+1)%cur.f.length;showSlide();if(cur.f.length>1){mprev.style.display=mnext.style.display="grid";}};
-mprev.onclick=e=>{e.stopPropagation();gi=(gi-1+cur.f.length)%cur.f.length;showSlide();if(cur.f.length>1){mprev.style.display=mnext.style.display="grid";}};
+playwrap.onclick=e=>{e.stopPropagation();if(!cur2.yt)return;const fr=document.createElement("iframe");fr.src=`https://www.youtube.com/embed/${ytId(cur2.yt)}?autoplay=1&rel=0`;fr.allow="autoplay; encrypted-media; fullscreen";fr.allowFullscreen=true;mimg.style.display="none";playwrap.style.display="none";mprev.style.display=mnext.style.display="none";stage.appendChild(fr);};
+mnext.onclick=e=>{e.stopPropagation();gi=(gi+1)%cur2.f.length;showSlide();};
+mprev.onclick=e=>{e.stopPropagation();gi=(gi-1+cur2.f.length)%cur2.f.length;showSlide();};
 function closeModal(){stopVideo();modal.classList.remove("open");document.body.style.overflow="";}
 document.getElementById("mclose").onclick=closeModal;
 modal.onclick=e=>{if(e.target===modal)closeModal();};
-document.addEventListener("keydown",e=>{
-  if(!modal.classList.contains("open"))return;
-  if(e.key==="Escape")closeModal();
-  if(cur&&cur.f.length>1){
-    if(e.key==="ArrowRight")mnext.onclick(e);
-    if(e.key==="ArrowLeft")mprev.onclick(e);
-  }
-});
+document.addEventListener("keydown",e=>{if(!modal.classList.contains("open"))return;if(e.key==="Escape")closeModal();if(cur2&&cur2.f.length>1){if(e.key==="ArrowRight")mnext.onclick(e);if(e.key==="ArrowLeft")mprev.onclick(e);}});
 </script>
 </body>
 </html>
